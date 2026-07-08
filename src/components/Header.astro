@@ -1,0 +1,42 @@
+---
+const { pathname } = Astro.url;
+
+const navItems = [
+  { href: '/oblasti-prava/gradjansko-pravo', label: 'Građansko pravo' },
+  { href: '/oblasti-prava/upravno-pravo', label: 'Upravno pravo' },
+  { href: '/oblasti-prava/krivicno-pravo', label: 'Krivično pravo' },
+  { href: '/blog', label: 'Pravni saveti' },
+  { href: '/o-advokatu', label: 'O advokatu' },
+  { href: '/kontakt', label: 'Kontakt' },
+];
+
+function isActive(href: string) {
+  return pathname === href || pathname.startsWith(href + '/');
+}
+---
+
+<div class="masthead">
+  <div class="masthead-top">
+    <div class="masthead-date">Beograd · Advokatska kancelarija</div>
+    <div class="masthead-brand">
+      <a href="/">
+        <div class="masthead-title">Marko A. Petrović</div>
+        <div class="masthead-subtitle">Advokat · Beograd</div>
+      </a>
+    </div>
+    <a class="masthead-phone" href="tel:0628226111">
+      <span>Pozovite nas</span>
+      062/822-6-111
+    </a>
+  </div>
+  <div class="masthead-bottom">
+    <nav class="masthead-nav" aria-label="Glavna navigacija">
+      {navItems.map(item => (
+        <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+      ))}
+    </nav>
+    <div class="masthead-cta">
+      <a class="btn-brick" href="/kontakt">Zakažite konsultaciju</a>
+    </div>
+  </div>
+</div>

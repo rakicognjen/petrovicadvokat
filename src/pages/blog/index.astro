@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const clanci = [
+  {
+    tag: 'Krivično pravo',
+    h: 'Prava okrivljenog u krivičnom postupku',
+    p: 'Pregled osnovnih prava koja okrivljeni ima od trenutka pokretanja postupka — pravo na odbranu, ćutanje i uvid u spise predmeta.',
+    href: '/blog/prava-okrivljenog-u-krivicnom-postupku',
+  },
+  {
+    tag: 'Upravno pravo',
+    h: 'Žalba na rešenje upravnog organa — rokovi i postupak',
+    p: 'Kada i kako se izjavljuje žalba, koji su zakonski rokovi i šta sledi ako prvostepeni organ ne postupi po žalbi.',
+    href: '/blog/zalba-na-resenje-upravnog-organa',
+  },
+];
+---
+
+<BaseLayout
+  title="Pravni saveti — Blog | Advokat Marko A. Petrović"
+  description="Stručni članci iz oblasti građanskog, upravnog i krivičnog prava — advokat Marko A. Petrović, Beograd."
+>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-kicker">Pravni saveti</div>
+      <h1 class="page-hero-h">Stručni članci iz prakse</h1>
+      <p class="page-hero-deck">Praktični tekstovi o postupcima i pravima stranaka u građanskom, upravnom i krivičnom pravu.</p>
+    </div>
+  </section>
+
+  <section class="clanci-section">
+    <div class="wrap clanci-grid">
+      {clanci.map((c, i) => (
+        <a class={`clanak-cell reveal d${i + 1}`} href={c.href}>
+          <div class="clanak-tag">{c.tag}</div>
+          <div class="clanak-rule"></div>
+          <div class="clanak-h">{c.h}</div>
+          <p class="clanak-p">{c.p}</p>
+          <span class="clanak-link">Pročitajte više →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .clanci-section { border-bottom: 3px solid var(--dark); background: var(--cream); }
+  .clanci-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
+  .clanak-cell { padding: 40px; border-right: 1px solid var(--tan); border-bottom: 1px solid var(--tan); display: flex; flex-direction: column; gap: 16px; text-decoration: none; transition: background 0.25s; }
+  .clanak-cell:hover { background: var(--cream2); }
+  .clanak-cell:nth-child(even) { border-right: none; }
+  .clanak-tag { font-size: 9px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--brick); }
+  .clanak-rule { height: 2px; background: var(--tan); width: 40px; }
+  .clanak-h { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--dark); line-height: 1.35; }
+  .clanak-p { font-size: 13px; color: var(--brown); line-height: 1.75; font-weight: 300; flex: 1; }
+  .clanak-link { font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--brick); text-transform: uppercase; }
+  @media (max-width: 700px) { .clanci-grid { grid-template-columns: 1fr; } .clanak-cell { border-right: none; } }
+</style>

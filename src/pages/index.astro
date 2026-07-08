@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const oblasti = [
+  {
+    num: '01',
+    href: '/oblasti-prava/gradjansko-pravo',
+    h: 'Građansko pravo',
+    p: 'Ugovori, naknada štete, imovinsko-pravni sporovi i izvršni postupci. Zastupanje fizičkih i pravnih lica pred parničnim i izvršnim sudovima.',
+  },
+  {
+    num: '02',
+    href: '/oblasti-prava/upravno-pravo',
+    h: 'Upravno pravo',
+    p: 'Žalbe na rešenja upravnih organa, upravni sporovi i zastupanje pred organima uprave, inspekcijama i lokalnom samoupravom.',
+  },
+  {
+    num: '03',
+    href: '/oblasti-prava/krivicno-pravo',
+    h: 'Krivično pravo',
+    p: 'Odbrana u krivičnom postupku, zastupanje oštećenih i podnošenje pravnih lekova. Prisustvo od prvog saslušanja do pravnosnažne presude.',
+  },
+];
+
+const clanci = [
+  {
+    tag: 'Krivično pravo',
+    h: 'Prava okrivljenog u krivičnom postupku',
+    p: 'Pregled osnovnih prava koja okrivljeni ima od trenutka pokretanja postupka — pravo na odbranu, ćutanje i uvid u spise predmeta.',
+    href: '/blog/prava-okrivljenog-u-krivicnom-postupku',
+  },
+  {
+    tag: 'Upravno pravo',
+    h: 'Žalba na rešenje upravnog organa — rokovi i postupak',
+    p: 'Kada i kako se izjavljuje žalba, koji su zakonski rokovi i šta sledi ako prvostepeni organ ne postupi po žalbi.',
+    href: '/blog/zalba-na-resenje-upravnog-organa',
+  },
+];
+---
+
+<BaseLayout
+  title="Advokat Marko A. Petrović — Beograd | Građansko, upravno i krivično pravo"
+  description="Advokatska kancelarija Marka A. Petrovića u Beogradu. Zastupanje i pravni saveti iz oblasti građanskog, upravnog i krivičnog prava."
+>
+  <section class="hero-section">
+    <div class="hero-grid wrap">
+      <div class="hero-main">
+        <div class="hero-mark" aria-hidden="true">§</div>
+        <div class="hero-main-content">
+          <div class="hero-kicker">Advokatska kancelarija · Beograd</div>
+          <h1 class="hero-headline">Pravna zaštita zasnovana na preciznosti i iskustvu</h1>
+          <p class="hero-deck">Građansko, upravno i krivično pravo — oblasti koje zahtevaju poznavanje procedure, rokova i sudske prakse u svakom pojedinačnom predmetu.</p>
+          <div class="hero-byline">
+            <div class="hero-byline-line"></div>
+            <div class="hero-byline-text">Marko A. Petrović · Advokat · Beograd</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-sidebar">
+        <div class="hero-sidebar-top">
+          <div class="sidebar-label">Oblasti prava</div>
+          <div class="sidebar-stat"><div class="sidebar-desc">Građansko pravo — ugovori, naknada štete, imovinski sporovi i izvršni postupci.</div></div>
+          <div class="sidebar-stat"><div class="sidebar-desc">Upravno pravo — žalbe i zastupanje pred organima uprave i upravnim sudom.</div></div>
+          <div class="sidebar-stat"><div class="sidebar-desc">Krivično pravo — odbrana okrivljenih i zastupanje oštećenih u krivičnom postupku.</div></div>
+        </div>
+        <div class="hero-sidebar-cta">
+          <div class="cta-label">Zakažite konsultacije</div>
+          <div class="cta-text">Opišite vaš slučaj i zakažite razgovor sa advokatom.</div>
+          <a class="cta-btn" href="/kontakt">Zakažite odmah →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="oblasti-section">
+    <div class="wrap">
+      <div class="section-header">
+        <div><span class="section-h-label">Oblast prava</span> <span class="section-h">Čime se bavimo</span></div>
+        <a class="btn-brick" href="/kontakt">Kontaktirajte nas</a>
+      </div>
+      <div class="oblasti-grid">
+        {oblasti.map((o, i) => (
+          <a class={`oblast-cell reveal d${i + 1}`} href={o.href}>
+            <div class="oblast-num">{o.num}</div>
+            <div class="oblast-h">{o.h}</div>
+            <div class="oblast-rule"></div>
+            <p class="oblast-p">{o.p}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="clanci-section">
+    <div class="wrap">
+      <div class="section-header">
+        <div><span class="section-h-label">Pravni saveti</span> <span class="section-h">Poslednji stručni članci</span></div>
+        <a class="btn-brick" href="/blog">Svi članci</a>
+      </div>
+      <div class="clanci-grid">
+        {clanci.map((c, i) => (
+          <div class={`clanak-cell reveal d${i + 1}`}>
+            <div class="clanak-tag">{c.tag}</div>
+            <div class="clanak-rule"></div>
+            <div class="clanak-h">{c.h}</div>
+            <p class="clanak-p">{c.p}</p>
+            <a href={c.href} class="clanak-link">Pročitajte više →</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="o-meni-section">
+    <div class="wrap o-meni-teaser">
+      <div class="o-meni-kicker">O advokatu</div>
+      <h2 class="o-meni-headline">Marko A. Petrović</h2>
+      <p class="o-meni-body">Advokat sa kancelarijom u Beogradu, fokusiran na građansko, upravno i krivično pravo. Zastupanje stranaka pred sudovima i organima uprave, uz jasnu komunikaciju o toku i statusu svakog predmeta.</p>
+      <a class="btn-brick" href="/o-advokatu">Saznajte više →</a>
+    </div>
+  </section>
+
+  <section class="kontakt-cta-section">
+    <div class="wrap kontakt-cta-inner">
+      <div>
+        <div class="kontakt-cta-h">Zakažite konsultaciju</div>
+        <p class="kontakt-cta-p">Opišite vaš slučaj i zakažite razgovor. Odgovaramo u roku od jednog radnog dana.</p>
+      </div>
+      <a class="btn-brick" href="/kontakt">Kontaktirajte nas →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-section { border-bottom: 3px solid var(--dark); }
+  .hero-grid { display: grid; grid-template-columns: 2fr 1fr; border-right: 1px solid var(--tan); }
+  .hero-main { position: relative; overflow: hidden; border-right: 1px solid var(--tan); background: var(--dark); min-height: 520px; display: flex; align-items: flex-end; }
+  .hero-mark { position: absolute; top: -60px; right: -20px; font-family: var(--serif); font-size: 440px; color: rgba(253,248,240,0.05); line-height: 1; user-select: none; }
+  .hero-main-content { position: relative; padding: 48px; }
+  .hero-kicker { font-size: 10px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: var(--brick3); margin-bottom: 14px; }
+  .hero-headline { font-family: var(--serif); font-size: clamp(28px, 4.5vw, 54px); color: #fff; line-height: 1.15; margin-bottom: 16px; max-width: 640px; }
+  .hero-deck { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.7; max-width: 500px; font-weight: 300; }
+  .hero-byline { display: flex; align-items: center; gap: 14px; margin-top: 24px; }
+  .hero-byline-line { height: 1px; width: 40px; background: var(--brick3); }
+  .hero-byline-text { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 500; }
+  .hero-sidebar { display: flex; flex-direction: column; background: var(--cream2); }
+  .hero-sidebar-top { padding: 36px 32px; flex: 1; border-bottom: 2px solid var(--tan); }
+  .sidebar-label { font-size: 9px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; border-bottom: 2px solid var(--dark); padding-bottom: 8px; }
+  .sidebar-stat { margin-bottom: 24px; border-bottom: 1px solid var(--tan); padding-bottom: 20px; }
+  .sidebar-stat:last-child { border-bottom: none; margin-bottom: 0; }
+  .sidebar-desc { font-size: 13px; color: var(--brown); line-height: 1.65; font-weight: 300; }
+  .hero-sidebar-cta { background: var(--brick); padding: 28px 32px; display: flex; flex-direction: column; gap: 12px; }
+  .cta-label { font-size: 9px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+  .cta-text { font-family: var(--serif); font-size: 18px; color: #fff; line-height: 1.3; }
+  .cta-btn { display: block; background: #fff; color: var(--brick); padding: 10px; text-align: center; font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; border: none; font-family: var(--sans); margin-top: 4px; transition: background 0.2s; text-decoration: none; }
+  .cta-btn:hover { background: var(--cream2); }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } .hero-main { min-height: 380px; } .hero-mark { font-size: 260px; } }
+
+  .oblasti-section { border-bottom: 3px solid var(--dark); }
+  .oblasti-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .oblast-cell { padding: 40px; border-right: 1px solid var(--tan); border-bottom: 1px solid var(--tan); transition: background 0.25s; text-decoration: none; display: block; }
+  .oblast-cell:last-child { border-right: none; }
+  .oblast-cell:hover { background: var(--cream2); }
+  .oblast-num { font-family: var(--serif); font-size: 56px; color: var(--linen); line-height: 1; margin-bottom: 14px; font-weight: 700; transition: color 0.3s; }
+  .oblast-cell:hover .oblast-num { color: var(--brick3); }
+  .oblast-h { font-family: var(--serif); font-size: 22px; margin-bottom: 12px; font-weight: 700; color: var(--dark); }
+  .oblast-rule { height: 2px; width: 40px; background: var(--brick); margin-bottom: 14px; }
+  .oblast-p { font-size: 14px; color: var(--brown); line-height: 1.75; font-weight: 300; }
+  @media (max-width: 768px) { .oblasti-grid { grid-template-columns: 1fr; } .oblast-cell { border-right: none; padding: 32px 24px; } }
+
+  .clanci-section { border-bottom: 3px solid var(--dark); background: var(--cream); }
+  .clanci-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
+  .clanak-cell { padding: 36px 32px; border-right: 1px solid var(--tan); display: flex; flex-direction: column; gap: 16px; }
+  .clanak-cell:last-child { border-right: none; }
+  .clanak-tag { font-size: 9px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--brick); }
+  .clanak-rule { height: 2px; background: var(--tan); }
+  .clanak-h { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--dark); line-height: 1.35; }
+  .clanak-p { font-size: 13px; color: var(--brown); line-height: 1.75; font-weight: 300; flex: 1; }
+  .clanak-link { font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--brick); text-decoration: none; text-transform: uppercase; }
+  .clanak-link:hover { color: var(--brick2); }
+  @media (max-width: 700px) { .clanci-grid { grid-template-columns: 1fr; } .clanak-cell { border-right: none; border-bottom: 1px solid var(--tan); } }
+
+  .o-meni-section { border-bottom: 3px solid var(--dark); background: var(--cream2); }
+  .o-meni-teaser { padding: 72px 64px; max-width: 800px; }
+  .o-meni-kicker { font-size: 9px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: var(--gray); border-bottom: 2px solid var(--dark); padding-bottom: 10px; margin-bottom: 24px; display: inline-block; }
+  .o-meni-headline { font-family: var(--serif); font-size: clamp(28px, 3.5vw, 40px); line-height: 1.2; color: var(--dark); margin-bottom: 20px; }
+  .o-meni-body { font-size: 15px; color: var(--brown); line-height: 1.85; margin-bottom: 28px; font-weight: 300; }
+  @media (max-width: 700px) { .o-meni-teaser { padding: 48px 24px; } }
+
+  .kontakt-cta-section { background: var(--dark); }
+  .kontakt-cta-inner { padding: 56px 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .kontakt-cta-h { font-family: var(--serif); font-size: clamp(22px, 3vw, 32px); color: var(--cream); margin-bottom: 8px; }
+  .kontakt-cta-p { font-size: 14px; color: rgba(253,248,240,0.5); font-weight: 300; }
+  @media (max-width: 700px) { .kontakt-cta-inner { padding: 40px 24px; } }
+</style>

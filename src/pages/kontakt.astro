@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Kontakt — Advokat Marko A. Petrović | Beograd"
+  description="Kontaktirajte advokata Marka A. Petrovića u Beogradu. Adresa, telefon, email i radno vreme kancelarije."
+>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-kicker">Kontakt</div>
+      <h1 class="page-hero-h">Zakažite konsultaciju</h1>
+      <p class="page-hero-deck">Opišite vaš slučaj i pošaljite upit. Odgovaramo u roku od jednog radnog dana.</p>
+    </div>
+  </section>
+
+  <section class="kontakt-section">
+    <div class="kontakt-inner wrap">
+      <div class="kontakt-left reveal">
+        <h2 class="kontakt-h">Podaci za kontakt</h2>
+        <div class="kontakt-items">
+          <div class="kontakt-item"><div class="kontakt-lbl">Telefon</div><div class="kontakt-val"><a href="tel:0628226111">062/822-6-111</a></div></div>
+          <div class="kontakt-item"><div class="kontakt-lbl">Email</div><div class="kontakt-val"><a href="mailto:mpetrovic694@gmail.com">mpetrovic694@gmail.com</a></div></div>
+          <div class="kontakt-item"><div class="kontakt-lbl">Adresa</div><div class="kontakt-val">Ul. Frontovska 24, 11030 Beograd</div></div>
+          <div class="kontakt-item"><div class="kontakt-lbl">Radno vreme</div><div class="kontakt-val">Pon – Pet: 09:00 – 17:00</div></div>
+        </div>
+        <a class="btn-brick" style="margin-top:28px;" href="https://www.google.com/maps/search/?api=1&query=Ul.+Frontovska+24+11030+Beograd" target="_blank" rel="noopener">Otvorite mapu →</a>
+      </div>
+      <div class="kontakt-right reveal d2">
+        <h2 class="kontakt-h" style="color:var(--cream); font-size:clamp(22px,3vw,32px);">Pošaljite upit</h2>
+        <form id="contact-form" class="kontakt-form">
+          <label class="k-field">
+            <span>Ime i prezime</span>
+            <input type="text" name="name" required />
+          </label>
+          <label class="k-field">
+            <span>Email</span>
+            <input type="email" name="email" required />
+          </label>
+          <label class="k-field">
+            <span>Telefon</span>
+            <input type="tel" name="phone" />
+          </label>
+          <label class="k-field">
+            <span>Vaša poruka</span>
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <button type="submit" class="btn-brick">Pošalji upit →</button>
+          <p class="k-note">Dugme otvara vaš email program sa popunjenom porukom, spremnom za slanje na mpetrovic694@gmail.com.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const name = String(data.get('name') || '');
+    const email = String(data.get('email') || '');
+    const phone = String(data.get('phone') || '');
+    const message = String(data.get('message') || '');
+    const subject = encodeURIComponent(`Upit sa sajta — ${name}`);
+    const body = encodeURIComponent(
+      `Ime i prezime: ${name}\nEmail: ${email}\nTelefon: ${phone}\n\nPoruka:\n${message}`
+    );
+    window.location.href = `mailto:mpetrovic694@gmail.com?subject=${subject}&body=${body}`;
+  });
+</script>
+
+<style>
+  .kontakt-section { border-bottom: 3px solid var(--dark); }
+  .kontakt-inner { display: grid; grid-template-columns: 1fr 1fr; }
+  .kontakt-left { padding: 64px; border-right: 1px solid var(--tan); }
+  .kontakt-h { font-family: var(--serif); font-size: clamp(24px, 3.5vw, 36px); margin-bottom: 32px; }
+  .kontakt-items { display: flex; flex-direction: column; }
+  .kontakt-item { display: flex; gap: 0; border-bottom: 1px solid var(--tan); padding: 18px 0; }
+  .kontakt-item:first-child { border-top: 1px solid var(--tan); }
+  .kontakt-lbl { font-size: 9px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--brick); width: 110px; flex-shrink: 0; padding-top: 2px; }
+  .kontakt-val { font-family: var(--serif); font-size: 16px; color: var(--dark); }
+  .kontakt-val a { text-decoration: none; color: var(--dark); }
+  .kontakt-val a:hover { color: var(--brick); }
+  .kontakt-right { padding: 56px 64px; background: var(--dark); display: flex; flex-direction: column; gap: 20px; justify-content: center; }
+  .kontakt-form { display: flex; flex-direction: column; gap: 16px; }
+  .k-field { display: flex; flex-direction: column; gap: 6px; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: rgba(253,248,240,0.5); font-weight: 600; }
+  .k-field input, .k-field textarea { font-family: var(--sans); font-size: 14px; color: var(--dark); background: var(--cream); border: none; padding: 12px 14px; resize: vertical; }
+  .k-field input:focus, .k-field textarea:focus { outline: 2px solid var(--brick3); outline-offset: 0; }
+  .k-note { font-size: 11px; color: rgba(253,248,240,0.35); font-weight: 300; line-height: 1.6; }
+  @media (max-width: 900px) { .kontakt-inner { grid-template-columns: 1fr; } .kontakt-left { padding: 44px 24px; border-right: none; } .kontakt-right { padding: 44px 24px; } }
+</style>

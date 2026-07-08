@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="O advokatu — Marko A. Petrović | Advokat Beograd"
+  description="Marko A. Petrović, advokat u Beogradu — pristup radu, oblasti prava i način komunikacije sa strankama."
+>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-kicker">O advokatu</div>
+      <h1 class="page-hero-h">Marko A. Petrović</h1>
+      <p class="page-hero-deck">Advokat sa kancelarijom u Beogradu, fokusiran na građansko, upravno i krivično pravo.</p>
+    </div>
+  </section>
+
+  <section class="o-meni-section">
+    <div class="o-meni-grid wrap">
+      <div class="o-meni-left reveal">
+        <div class="o-meni-kicker">Pristup radu</div>
+        <p class="o-meni-body">Advokat Marko A. Petrović zastupa stranke u predmetima iz oblasti <strong>građanskog, upravnog i krivičnog prava</strong>. Rad kancelarije zasniva se na detaljnoj pripremi svakog predmeta, poznavanju procesnih rokova i jasnoj, redovnoj komunikaciji sa strankom o toku postupka.</p>
+        <div class="o-meni-pull">„Stranka koja razume tok postupka i svoja prava u svakoj fazi — donosi bolje odluke."</div>
+        <p class="o-meni-body">Kancelarija pruža pravnu podršku od prvog razgovora i analize predmeta, preko zastupanja pred sudom ili organom uprave, do izvršenja odluke. Svaki predmet se prati individualno, uz redovno obaveštavanje stranke o statusu i narednim koracima.</p>
+        <a class="btn-brick" href="/kontakt">Zakažite konsultaciju</a>
+      </div>
+      <div class="o-meni-right">
+        <div class="o-meni-mark" aria-hidden="true">§</div>
+        <div class="o-meni-right-bar">
+          <div class="o-meni-right-name">Marko A. Petrović</div>
+          <div class="o-meni-right-since">Advokat · Beograd</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="oblasti-section">
+    <div class="wrap">
+      <div class="section-header">
+        <div><span class="section-h-label">Oblast prava</span> <span class="section-h">Oblasti u kojima zastupam stranke</span></div>
+      </div>
+      <div class="oblasti-grid">
+        <a class="oblast-cell reveal d1" href="/oblasti-prava/gradjansko-pravo">
+          <div class="oblast-h">Građansko pravo</div>
+          <div class="oblast-rule"></div>
+          <p class="oblast-p">Ugovori, naknada štete, imovinsko-pravni sporovi i izvršni postupci.</p>
+        </a>
+        <a class="oblast-cell reveal d2" href="/oblasti-prava/upravno-pravo">
+          <div class="oblast-h">Upravno pravo</div>
+          <div class="oblast-rule"></div>
+          <p class="oblast-p">Žalbe na upravne akte, upravni sporovi i zastupanje pred organima uprave.</p>
+        </a>
+        <a class="oblast-cell reveal d3" href="/oblasti-prava/krivicno-pravo">
+          <div class="oblast-h">Krivično pravo</div>
+          <div class="oblast-rule"></div>
+          <p class="oblast-p">Odbrana okrivljenih i zastupanje oštećenih u krivičnom postupku.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .o-meni-section { border-bottom: 3px solid var(--dark); background: var(--cream2); }
+  .o-meni-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .o-meni-left { padding: 72px 64px; border-right: 1px solid var(--tan); }
+  .o-meni-right { position: relative; overflow: hidden; background: var(--dark); min-height: 460px; }
+  .o-meni-mark { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 320px; color: rgba(253,248,240,0.06); line-height: 1; }
+  .o-meni-right-bar { position: absolute; bottom: 0; left: 0; right: 0; background: var(--brick); padding: 20px 28px; display: flex; align-items: center; justify-content: space-between; }
+  .o-meni-right-name { font-family: var(--serif); font-size: 18px; color: #fff; }
+  .o-meni-right-since { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+  .o-meni-kicker { font-size: 9px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: var(--gray); border-bottom: 2px solid var(--dark); padding-bottom: 10px; margin-bottom: 24px; display: inline-block; }
+  .o-meni-body { font-size: 15px; color: var(--brown); line-height: 1.9; margin-bottom: 20px; font-weight: 300; }
+  .o-meni-body strong { font-weight: 600; color: var(--dark); }
+  .o-meni-pull { border-left: 4px solid var(--brick); padding: 16px 20px; background: var(--linen); font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--ink); line-height: 1.5; margin: 28px 0; }
+  @media (max-width: 900px) { .o-meni-grid { grid-template-columns: 1fr; } .o-meni-left { padding: 48px 24px; } .o-meni-right { min-height: 320px; } }
+
+  .oblasti-section { border-bottom: 3px solid var(--dark); }
+  .oblasti-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .oblast-cell { padding: 40px; border-right: 1px solid var(--tan); border-bottom: 1px solid var(--tan); transition: background 0.25s; text-decoration: none; display: block; }
+  .oblast-cell:last-child { border-right: none; }
+  .oblast-cell:hover { background: var(--cream2); }
+  .oblast-h { font-family: var(--serif); font-size: 22px; margin-bottom: 12px; font-weight: 700; color: var(--dark); }
+  .oblast-rule { height: 2px; width: 40px; background: var(--brick); margin-bottom: 14px; }
+  .oblast-p { font-size: 14px; color: var(--brown); line-height: 1.75; font-weight: 300; }
+  @media (max-width: 768px) { .oblasti-grid { grid-template-columns: 1fr; } .oblast-cell { border-right: none; padding: 32px 24px; } }
+</style>
