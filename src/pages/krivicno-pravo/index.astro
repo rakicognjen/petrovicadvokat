@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaStrip from '../../components/CtaStrip.astro';
 
 const usluge = [
   { h: 'Odbrana u krivičnom postupku', p: 'Hapšenje, saslušanje, pritvor, odbrana na suđenju i žalbe.', href: '/krivicno-pravo/krivicna-odbrana-beograd' },
@@ -48,15 +49,16 @@ const breadcrumbSchema = {
   <section class="page-hero">
     <div class="page-hero-inner">
       <div class="page-hero-kicker">Krivično pravo</div>
-      <h1 class="page-hero-h">Advokat za krivično pravo – Beograd</h1>
+      <h1 class="page-hero-h">Advokat za krivično pravo u Beogradu</h1>
       <p class="page-hero-deck">Odbrana u svim fazama krivičnog postupka i saobraćajnim prekršajima, uz hitnu dostupnost od prvog policijskog poziva do žalbe na presudu.</p>
+      <div class="page-hero-cta"><CtaStrip variant="dark" /></div>
     </div>
   </section>
 
   <section class="hub-services-section">
     <div class="wrap">
       <div class="section-header">
-        <div><span class="section-h-label">Pod-oblasti</span> <span class="section-h">Usluge u okviru krivičnog prava</span></div>
+        <div><span class="section-h-label">Pod-oblasti</span> <span class="section-h">Najčešći upiti u okviru kaznenog prava</span></div>
       </div>
       <div class="hub-services-grid">
         {usluge.map((u) => (
@@ -93,6 +95,10 @@ const breadcrumbSchema = {
         <p>Krivični i prekršajni postupci u Beogradu vode se pred više različitih institucija, u zavisnosti od težine dela, od osnovnih sudova i Prekršajnog suda, preko Prvog, Drugog, Trećeg i Višeg javnog tužilaštva, do Apelacionog suda u žalbenom postupku. Kancelarija redovno zastupa klijente pred svim ovim institucijama, što znači da se odbrana ne prekida promenom faze postupka niti prelaskom predmeta sa jednog na drugi organ. Isti advokat prati predmet od prve policijske intervencije do pravosnažnog okončanja.</p>
         <p>Ista doslednost važi i za saobraćajne predmete: bilo da je reč o prekršajnom postupku zbog prekoračenja brzine ili o krivičnom delu ugrožavanja javnog saobraćaja sa teškim posledicama, klijent ima jednog advokata koji poznaje ceo tok predmeta, umesto da menja pravnog zastupnika u zavisnosti od faze u kojoj se predmet nalazi.</p>
       </article>
+      <div class="inline-cta reveal">
+        <p class="inline-cta-text">Imate pitanje o vašem slučaju?</p>
+        <CtaStrip variant="light" />
+      </div>
     </div>
   </section>
 
@@ -109,6 +115,10 @@ const breadcrumbSchema = {
           </article>
         ))}
       </div>
+      <div class="inline-cta reveal">
+        <span class="inline-cta-text">Niste našli odgovor?</span>
+        <CtaStrip variant="light" />
+      </div>
     </div>
   </section>
 
@@ -119,7 +129,7 @@ const breadcrumbSchema = {
         <h2 class="section-h">Svaki sat kašnjenja ima cenu</h2>
         <p>Suočavate se sa krivičnim postupkom ili saobraćajnim prekršajem u Beogradu? Svaki dan kašnjenja smanjuje vaše šanse za povoljan ishod. Pozovite našeg dežurnog advokata na 062/822-6-111.</p>
       </div>
-      <a class="btn-brick" href="/kontakt">Kontaktirajte nas</a>
+      <CtaStrip variant="dark" />
     </div>
   </section>
 

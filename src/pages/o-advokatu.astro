@@ -14,25 +14,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <section class="o-meni-section">
-    <div class="o-meni-grid wrap">
-      <div class="o-meni-left reveal">
-        <div class="o-meni-kicker">Pristup radu</div>
-        <p class="o-meni-body">Advokat Marko A. Petrović zastupa stranke u predmetima iz oblasti <strong>građanskog, upravnog i krivičnog prava</strong>. Rad kancelarije zasniva se na detaljnoj pripremi svakog predmeta, poznavanju procesnih rokova i jasnoj, redovnoj komunikaciji sa strankom o toku postupka.</p>
-        <div class="o-meni-pull">„Stranka koja razume tok postupka i svoja prava u svakoj fazi donosi bolje odluke."</div>
-        <p class="o-meni-body">Kancelarija pruža pravnu podršku od prvog razgovora i analize predmeta, preko zastupanja pred sudom ili organom uprave, do izvršenja odluke. Svaki predmet se prati individualno, uz redovno obaveštavanje stranke o statusu i narednim koracima.</p>
-        <a class="btn-brick" href="/kontakt">Zakažite konsultaciju</a>
-      </div>
-      <div class="o-meni-right">
-        <div class="o-meni-mark" aria-hidden="true">§</div>
-        <div class="o-meni-right-bar">
-          <div class="o-meni-right-name">Marko A. Petrović</div>
-          <div class="o-meni-right-since">Advokat · Beograd</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="oblasti-section">
     <div class="wrap">
       <div class="section-header">
@@ -57,6 +38,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
   </section>
+
+  <section class="o-meni-section">
+    <div class="o-meni-grid wrap">
+      <div class="o-meni-left reveal">
+        <div class="o-meni-kicker">Pristup radu</div>
+        <p class="o-meni-body">Advokat Marko A. Petrović zastupa stranke u predmetima iz oblasti <strong>građanskog, upravnog i krivičnog prava</strong>. Rad kancelarije zasniva se na detaljnoj pripremi svakog predmeta, poznavanju procesnih rokova i jasnoj, redovnoj komunikaciji sa strankom o toku postupka.</p>
+        <div class="o-meni-pull">„Stranka koja razume tok postupka i svoja prava u svakoj fazi donosi bolje odluke."</div>
+        <p class="o-meni-body">Kancelarija pruža pravnu podršku od prvog razgovora i analize predmeta, preko zastupanja pred sudom ili organom uprave, do izvršenja odluke. Svaki predmet se prati individualno, uz redovno obaveštavanje stranke o statusu i narednim koracima.</p>
+        <a class="btn-brick" href="/kontakt">Zakažite konsultaciju</a>
+      </div>
+      <div class="o-meni-right">
+        <img class="o-meni-right-img" src="/hero-image.webp" alt="Boginja pravde Temida sa vagom – advokat Marko A. Petrović" />
+        <div class="o-meni-right-overlay" aria-hidden="true"></div>
+        <div class="o-meni-mark" aria-hidden="true">§</div>
+        <div class="o-meni-right-bar">
+          <div class="o-meni-right-name">Marko A. Petrović</div>
+          <div class="o-meni-right-since">Advokat · Beograd</div>
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
@@ -64,9 +66,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .o-meni-grid { display: grid; grid-template-columns: 1fr 1fr; }
   .o-meni-left { padding: 72px 64px; border-right: 1px solid var(--tan); }
   .page-hero-image { background: linear-gradient(180deg, rgba(30,21,10,0.68) 0%, rgba(30,21,10,0.92) 100%), url('/subpage-hero.webp') center/cover no-repeat; }
-  .o-meni-right { position: relative; overflow: hidden; background: linear-gradient(180deg, rgba(30,21,10,0.35) 0%, rgba(30,21,10,0.7) 100%), url('/belgrade.webp') center/cover no-repeat; min-height: 460px; }
-  .o-meni-mark { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 320px; color: rgba(253,248,240,0.06); line-height: 1; }
-  .o-meni-right-bar { position: absolute; bottom: 0; left: 0; right: 0; background: var(--brick); padding: 20px 28px; display: flex; align-items: center; justify-content: space-between; }
+  .o-meni-right { position: relative; overflow: hidden; min-height: 460px; }
+  .o-meni-right-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+  .o-meni-right-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(30,21,10,0.35) 0%, rgba(30,21,10,0.7) 100%); z-index: 1; }
+  .o-meni-mark { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 320px; color: rgba(253,248,240,0.06); line-height: 1; z-index: 2; }
+  .o-meni-right-bar { position: absolute; bottom: 0; left: 0; right: 0; background: var(--brick); padding: 20px 28px; display: flex; align-items: center; justify-content: space-between; z-index: 2; }
   .o-meni-right-name { font-family: var(--serif); font-size: 18px; color: #fff; }
   .o-meni-right-since { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); }
   .o-meni-kicker { font-size: 9px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: var(--gray); border-bottom: 2px solid var(--dark); padding-bottom: 10px; margin-bottom: 24px; display: inline-block; }

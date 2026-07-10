@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaStrip from '../../components/CtaStrip.astro';
 
 const faq = [
   {
@@ -56,8 +57,9 @@ const breadcrumbSchema = {
         <li><span>Nasledno pravo</span></li>
       </ul>
       <div class="page-hero-kicker">Nasledno pravo</div>
-      <h1 class="page-hero-h">Advokat za nasledno pravo – Ostavinski postupci i nasledni sporovi</h1>
+      <h1 class="page-hero-h">Advokat za ostavinske postupke i nasledne sporove</h1>
       <p class="page-hero-deck">Pružamo pravnu podršku pri ostavinskim postupcima, testamentima i zaštiti prava na nužni deo u Beogradu i na Čukarici.</p>
+      <div class="page-hero-cta"><CtaStrip variant="dark" /></div>
     </div>
   </section>
 
@@ -86,9 +88,13 @@ const breadcrumbSchema = {
       </article>
 
       <article class="content-section">
-        <h2>Interni linkovi</h2>
+        <h2>Povezane usluge</h2>
         <p>Za pitanja o bračnim ugovorima i razvodu pogledajte <a href="/gradjansko-pravo/razvod-braka-cukarica">Razvod braka</a>. U slučaju da je u pitanju nasleđena imovina, vidite i <a href="/gradjansko-pravo/nekretnine-cukarica">Nekretnine</a> i <a href="/gradjansko-pravo/smetanje-poseda-cukarica">Smetanje poseda</a>.</p>
       </article>
+      <div class="inline-cta reveal">
+        <p class="inline-cta-text">Imate pitanje o vašem slučaju?</p>
+        <CtaStrip variant="light" />
+      </div>
     </div>
   </section>
 
@@ -105,6 +111,10 @@ const breadcrumbSchema = {
           </article>
         ))}
       </div>
+      <div class="inline-cta reveal">
+        <span class="inline-cta-text">Niste našli odgovor?</span>
+        <CtaStrip variant="light" />
+      </div>
     </div>
   </section>
 
@@ -115,7 +125,7 @@ const breadcrumbSchema = {
         <h2 class="section-h">Pobrinite se da vaša imovina i volja budu bezbedni</h2>
         <p>Obratite se advokatu za nasledno pravo u Beogradu i sprečite porodične sporove pre nego što eskaliraju.</p>
       </div>
-      <a class="btn-brick" href="/kontakt">Kontaktirajte nas</a>
+      <CtaStrip variant="dark" />
     </div>
   </section>
 

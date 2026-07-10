@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaStrip from '../../components/CtaStrip.astro';
 
 const faq = [
   {
@@ -56,8 +57,9 @@ const breadcrumbSchema = {
         <li><span>Razvod braka</span></li>
       </ul>
       <div class="page-hero-kicker">Porodično pravo</div>
-      <h1 class="page-hero-h">Advokat za razvod braka – Čukarica i Žarkovo</h1>
+      <h1 class="page-hero-h">Advokat za razvod braka na Čukarici i u Žarkovu</h1>
       <p class="page-hero-deck">Stručna, diskretna i pragmatična pravna pomoć u sporazumnim i tužbenim razvodima, uz zaštitu prava dece i pravnu sigurnost za imovinu.</p>
+      <div class="page-hero-cta"><CtaStrip variant="dark" /></div>
     </div>
   </section>
 
@@ -94,9 +96,13 @@ const breadcrumbSchema = {
       </article>
 
       <article class="content-section">
-        <h2>Interni linkovi</h2>
+        <h2>Povezane usluge</h2>
         <p>Za pitanja nasleđa i bračnih ugovora pogledajte <a href="/gradjansko-pravo/nasledno-pravo-beograd">Nasledno pravo</a>. Ako je razvod povezan sa imovinom, otvorite <a href="/gradjansko-pravo/nekretnine-cukarica">Nekretnine i imovinsko-pravni odnosi</a>. U slučajevima nasilja u porodici, preporučujemo i <a href="/gradjansko-pravo/naknada-stete-beograd">Naknada štete</a>.</p>
       </article>
+      <div class="inline-cta reveal">
+        <p class="inline-cta-text">Imate pitanje o vašem slučaju?</p>
+        <CtaStrip variant="light" />
+      </div>
     </div>
   </section>
 
@@ -113,6 +119,10 @@ const breadcrumbSchema = {
           </article>
         ))}
       </div>
+      <div class="inline-cta reveal">
+        <span class="inline-cta-text">Niste našli odgovor?</span>
+        <CtaStrip variant="light" />
+      </div>
     </div>
   </section>
 
@@ -123,9 +133,7 @@ const breadcrumbSchema = {
         <h2 class="section-h">Pripremite razvod sa sigurnošću i podrškom</h2>
         <p>Obratite se kancelariji u Žarkovu dok su rokovi i prava jasni. Pošaljite poruku ili nas pozovite za brzu procenu slučaja.</p>
       </div>
-      <div>
-        <a class="btn-brick" href="/kontakt">Kontaktirajte nas</a>
-      </div>
+      <CtaStrip variant="dark" />
     </div>
   </section>
 

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaStrip from '../../components/CtaStrip.astro';
 
 const faq = [
   {
@@ -58,6 +59,7 @@ const breadcrumbSchema = {
       <div class="page-hero-kicker">Međunarodni razvod</div>
       <h1 class="page-hero-h">Advokat za međunarodni razvod braka i priznanje stranih presuda</h1>
       <p class="page-hero-deck">Pravni postupci za građane Srbije u dijaspori i strane državljane sa razvodom i priznanjem presuda u Srbiji.</p>
+      <div class="page-hero-cta"><CtaStrip variant="dark" /></div>
     </div>
   </section>
 
@@ -89,9 +91,13 @@ const breadcrumbSchema = {
       </article>
 
       <article class="content-section">
-        <h2>Interni linkovi</h2>
+        <h2>Povezane usluge</h2>
         <p>Za klasičan razvod pogledajte <a href="/gradjansko-pravo/razvod-braka-cukarica">Razvod braka</a>. Ako postoji imovina u Srbiji, vidite i <a href="/gradjansko-pravo/nekretnine-cukarica">Nekretnine</a> i <a href="/gradjansko-pravo/nasledno-pravo-beograd">Nasledno pravo</a>.</p>
       </article>
+      <div class="inline-cta reveal">
+        <p class="inline-cta-text">Imate pitanje o vašem slučaju?</p>
+        <CtaStrip variant="light" />
+      </div>
     </div>
   </section>
 
@@ -108,6 +114,10 @@ const breadcrumbSchema = {
           </article>
         ))}
       </div>
+      <div class="inline-cta reveal">
+        <span class="inline-cta-text">Niste našli odgovor?</span>
+        <CtaStrip variant="light" />
+      </div>
     </div>
   </section>
 
@@ -118,7 +128,7 @@ const breadcrumbSchema = {
         <h2 class="section-h">Rešite razvod iz inostranstva bez stresa</h2>
         <p>Zakažite konsultaciju putem Vibera/WhatsApp-a ili telefona i završite dokumentaciju bez čestih putovanja u Srbiju.</p>
       </div>
-      <a class="btn-brick" href="/kontakt">Kontaktirajte nas</a>
+      <CtaStrip variant="dark" />
     </div>
   </section>
 

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaStrip from '../../components/CtaStrip.astro';
 
 const faq = [
   {
@@ -56,8 +57,9 @@ const breadcrumbSchema = {
         <li><span>Odbrana u krivičnom postupku</span></li>
       </ul>
       <div class="page-hero-kicker">Krivično pravo</div>
-      <h1 class="page-hero-h">Advokat za krivično pravo – Odbrana u krivičnim postupcima</h1>
+      <h1 class="page-hero-h">Advokat za odbranu u krivičnim postupcima</h1>
       <p class="page-hero-deck">Vreme je ključno u krivičnom postupku. Prvi korak uz stručnog branioca često menja tok slučaja.</p>
+      <div class="page-hero-cta"><CtaStrip variant="dark" /></div>
     </div>
   </section>
 
@@ -89,9 +91,13 @@ const breadcrumbSchema = {
       </article>
 
       <article class="content-section">
-        <h2>Interni linkovi</h2>
+        <h2>Povezane usluge</h2>
         <p>Ako je predmet povezan sa saobraćajem i oduzimanjem dozvole, pogledajte <a href="/krivicno-pravo/saobracajni-prekrsaji-beograd">Saobraćajne prekršaje</a>. Za naknadu štete nakon povreda, posetite <a href="/gradjansko-pravo/naknada-stete-beograd">Naknadu štete</a>.</p>
       </article>
+      <div class="inline-cta reveal">
+        <p class="inline-cta-text">Imate pitanje o vašem slučaju?</p>
+        <CtaStrip variant="light" />
+      </div>
     </div>
   </section>
 
@@ -108,17 +114,21 @@ const breadcrumbSchema = {
           </article>
         ))}
       </div>
+      <div class="inline-cta reveal">
+        <span class="inline-cta-text">Niste našli odgovor?</span>
+        <CtaStrip variant="light" />
+      </div>
     </div>
   </section>
 
   <section class="page-cta-section">
     <div class="wrap page-cta-inner reveal">
       <div class="cta-copy">
-        <div class="section-h-label">Krivična zaštita</div>
+        <div class="section-h-label">Krivičnopravna zaštita</div>
         <h2 class="section-h">Ne prepuštajte odbranu slučaju</h2>
         <p>Kontaktirajte advokata za hitnu odbranu u Beogradu i zaštitite prava od prvog ročišta do pravnosnažne odluke.</p>
       </div>
-      <a class="btn-brick" href="/kontakt">Kontaktirajte nas</a>
+      <CtaStrip variant="dark" />
     </div>
   </section>
 

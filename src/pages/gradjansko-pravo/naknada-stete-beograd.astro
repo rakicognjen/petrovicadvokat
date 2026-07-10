@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaStrip from '../../components/CtaStrip.astro';
 
 const faq = [
   {
@@ -56,8 +57,9 @@ const breadcrumbSchema = {
         <li><span>Naknada štete</span></li>
       </ul>
       <div class="page-hero-kicker">Naknada štete</div>
-      <h1 class="page-hero-h">Advokat za naknadu štete – Saobraćajne nezgode i povrede</h1>
+      <h1 class="page-hero-h">Advokat za naknadu štete nakon saobraćajnih nezgoda i povreda</h1>
       <p class="page-hero-deck">Pravni zastupnik za maksimalnu nadoknadu štete uz potpunu podršku u dokazivanju povreda i troškova.</p>
+      <div class="page-hero-cta"><CtaStrip variant="dark" /></div>
     </div>
   </section>
 
@@ -85,9 +87,13 @@ const breadcrumbSchema = {
       </article>
 
       <article class="content-section">
-        <h2>Interni linkovi</h2>
+        <h2>Povezane usluge</h2>
         <p>Ako je nezgoda prerasla u krivični postupak, pogledajte <a href="/krivicno-pravo/saobracajni-prekrsaji-beograd">Saobraćajne prekršaje</a>. Za zaštitu prava na posed i smetanje poseda, pogledajte <a href="/gradjansko-pravo/smetanje-poseda-cukarica">Smetanje poseda</a>.</p>
       </article>
+      <div class="inline-cta reveal">
+        <p class="inline-cta-text">Imate pitanje o vašem slučaju?</p>
+        <CtaStrip variant="light" />
+      </div>
     </div>
   </section>
 
@@ -104,6 +110,10 @@ const breadcrumbSchema = {
           </article>
         ))}
       </div>
+      <div class="inline-cta reveal">
+        <span class="inline-cta-text">Niste našli odgovor?</span>
+        <CtaStrip variant="light" />
+      </div>
     </div>
   </section>
 
@@ -114,7 +124,7 @@ const breadcrumbSchema = {
         <h2 class="section-h">Ne pristajte na minimalne ponude osiguranja</h2>
         <p>Obratite se advokatu na Čukarici i obezbedite maksimalnu nadoknadu štete bez skrivenih uslova.</p>
       </div>
-      <a class="btn-brick" href="/kontakt">Kontaktirajte nas</a>
+      <CtaStrip variant="dark" />
     </div>
   </section>
 

@@ -1,0 +1,11 @@
+---
+interface Props {
+  variant?: 'dark' | 'light';
+}
+const { variant = 'light' } = Astro.props;
+---
+
+<div class={`cta-strip cta-strip-${variant}`}>
+  <a class="btn-brick" href="/kontakt">Zakažite konsultaciju</a>
+  <a class="cta-strip-phone" href="tel:0628226111">Pozovite nas: 062/822-6-111</a>
+</div>

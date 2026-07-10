@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaStrip from '../../components/CtaStrip.astro';
 
 const faq = [
   {
@@ -56,8 +57,9 @@ const breadcrumbSchema = {
         <li><span>Upravni sporovi</span></li>
       </ul>
       <div class="page-hero-kicker">Upravno pravo</div>
-      <h1 class="page-hero-h">Advokat za upravne sporove i postupke pred državnim organima – Beograd</h1>
+      <h1 class="page-hero-h">Advokat za upravne sporove i postupke pred državnim organima u Beogradu</h1>
       <p class="page-hero-deck">Pravno zastupanje protiv nerešenih ili nezakonitih odluka državnih organa, uz sve administrativne i sudske faze.</p>
+      <div class="page-hero-cta"><CtaStrip variant="dark" /></div>
     </div>
   </section>
 
@@ -90,9 +92,13 @@ const breadcrumbSchema = {
       </article>
 
       <article class="content-section">
-        <h2>Interni linkovi</h2>
+        <h2>Povezane usluge</h2>
         <p>Ako je rešenje povezano sa katastrom ili građevinskim dozvolama, pogledajte <a href="/gradjansko-pravo/nekretnine-cukarica">Nekretnine</a>. Za slučajeve gde je rešenje dovelo do smetanja prava, vidite <a href="/gradjansko-pravo/smetanje-poseda-cukarica">Smetanje poseda</a>.</p>
       </article>
+      <div class="inline-cta reveal">
+        <p class="inline-cta-text">Imate pitanje o vašem slučaju?</p>
+        <CtaStrip variant="light" />
+      </div>
     </div>
   </section>
 
@@ -109,6 +115,10 @@ const breadcrumbSchema = {
           </article>
         ))}
       </div>
+      <div class="inline-cta reveal">
+        <span class="inline-cta-text">Niste našli odgovor?</span>
+        <CtaStrip variant="light" />
+      </div>
     </div>
   </section>
 
@@ -119,7 +129,7 @@ const breadcrumbSchema = {
         <h2 class="section-h">Oborite nezakonitu odluku organa</h2>
         <p>Prijavite problem odmah i angažujte advokata koji će vas zastupati u svim fazama upravnog spora.</p>
       </div>
-      <a class="btn-brick" href="/kontakt">Kontaktirajte nas</a>
+      <CtaStrip variant="dark" />
     </div>
   </section>
 

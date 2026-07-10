@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaStrip from '../../components/CtaStrip.astro';
 
 const usluge = [
   { h: 'Razvod braka', p: 'Sporazumni razvod, razvod po tužbi, poveravanje dece i alimentacija.', href: '/gradjansko-pravo/razvod-braka-cukarica' },
@@ -52,15 +53,16 @@ const breadcrumbSchema = {
   <section class="page-hero">
     <div class="page-hero-inner">
       <div class="page-hero-kicker">Građansko pravo</div>
-      <h1 class="page-hero-h">Advokat za građansko pravo – Beograd i Čukarica</h1>
+      <h1 class="page-hero-h">Advokat za građansko pravo u Beogradu i na Čukarici</h1>
       <p class="page-hero-deck">Razvod, nekretnine, nasledstvo, naknada štete i smetanje poseda, sve grane građanskog prava pod jednim krovom, sa kancelarijom u Žarkovu za Čukaricu i širi Beograd.</p>
+      <div class="page-hero-cta"><CtaStrip variant="dark" /></div>
     </div>
   </section>
 
   <section class="hub-services-section">
     <div class="wrap">
       <div class="section-header">
-        <div><span class="section-h-label">Pod-oblasti</span> <span class="section-h">Usluge u okviru građanskog prava</span></div>
+        <div><span class="section-h-label">Pod-oblasti</span> <span class="section-h">Najčešći upiti u okviru građanskog prava</span></div>
       </div>
       <div class="hub-services-grid">
         {usluge.map((u) => (
@@ -96,6 +98,10 @@ const breadcrumbSchema = {
         <h2>Kako izgleda saradnja sa kancelarijom</h2>
         <p>Svaki predmet počinje inicijalnom konsultacijom u kojoj advokat upoznaje činjenično stanje i objašnjava realna očekivanja, uključujući rokove, troškove i moguće ishode, bez nepotrebnog obećavanja. Nakon toga sledi prikupljanje i provera dokumentacije, izrada strategije (sporazumno rešenje kad god je moguće, sudski put kada je neophodan) i aktivno zastupanje do pravosnažnog okončanja postupka. Klijent u svakom trenutku zna u kojoj je fazi predmet i šta je sledeći korak.</p>
       </article>
+      <div class="inline-cta reveal">
+        <p class="inline-cta-text">Imate pitanje o vašem slučaju?</p>
+        <CtaStrip variant="light" />
+      </div>
     </div>
   </section>
 
@@ -112,6 +118,10 @@ const breadcrumbSchema = {
           </article>
         ))}
       </div>
+      <div class="inline-cta reveal">
+        <span class="inline-cta-text">Niste našli odgovor?</span>
+        <CtaStrip variant="light" />
+      </div>
     </div>
   </section>
 
@@ -122,7 +132,7 @@ const breadcrumbSchema = {
         <h2 class="section-h">Rešite pravno pitanje uz jednu kancelariju za sve</h2>
         <p>Bez obzira da li vam je potrebna pomoć oko razvoda, nekretnine ili nasledstva, prvi korak je isti. Inicijalni razgovor u kojem utvrđujemo najbolju strategiju za vaš slučaj.</p>
       </div>
-      <a class="btn-brick" href="/kontakt">Kontaktirajte nas</a>
+      <CtaStrip variant="dark" />
     </div>
   </section>
 

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaStrip from '../../components/CtaStrip.astro';
 
 const usluge = [
   { h: 'Upravni sporovi', p: 'Žalbe na rešenja Poreske uprave i Katastra, tužbe Upravnom sudu, PIO fond.', href: '/upravno-pravo/upravni-sporovi-beograd' },
@@ -47,15 +48,16 @@ const breadcrumbSchema = {
   <section class="page-hero">
     <div class="page-hero-inner">
       <div class="page-hero-kicker">Upravno pravo</div>
-      <h1 class="page-hero-h">Advokat za upravno pravo – Beograd</h1>
+      <h1 class="page-hero-h">Advokat za upravno pravo u Beogradu</h1>
       <p class="page-hero-deck">Žalbe na rešenja državnih organa i tužbe Upravnom sudu, u sporovima gde je suprotna strana sama država.</p>
+      <div class="page-hero-cta"><CtaStrip variant="dark" /></div>
     </div>
   </section>
 
   <section class="hub-services-section">
     <div class="wrap">
       <div class="section-header">
-        <div><span class="section-h-label">Pod-oblasti</span> <span class="section-h">Usluge u okviru upravnog prava</span></div>
+        <div><span class="section-h-label">Pod-oblasti</span> <span class="section-h">Najčešći upiti u okviru upravnog prava</span></div>
       </div>
       <div class="hub-services-grid">
         {usluge.map((u) => (
@@ -91,6 +93,10 @@ const breadcrumbSchema = {
         <p>U praksi se upravni sporovi najčešće javljaju u nekoliko ponavljajućih situacija: odbijen zahtev za građevinsku dozvolu ili lokacijske uslove, sporno poresko rešenje o utvrđivanju poreza na imovinu ili poreza na prenos apsolutnih prava, odbijen zahtev za uknjižbu u Katastru nepokretnosti, kao i rešenja inspekcijskih organa (građevinske, tržišne, radne inspekcije) koja nameću mere ili kazne. U svim ovim slučajevima postupak počinje žalbom drugostepenom organu, a tek ukoliko ni ona ne da rezultat, sledi tužba Upravnom sudu Republike Srbije u Beogradu.</p>
         <p>Poseban i često zanemaren segment upravnog prava tiče se penzijskih i socijalnih prava (nepriznavanja radnog staža, pogrešnog obračuna penzije ili odbijanja zahteva za invalidsku penziju od strane PIO fonda), gde je pravovremena žalba jednako važna kao i kod imovinskih predmeta.</p>
       </article>
+      <div class="inline-cta reveal">
+        <p class="inline-cta-text">Imate pitanje o vašem slučaju?</p>
+        <CtaStrip variant="light" />
+      </div>
     </div>
   </section>
 
@@ -107,6 +113,10 @@ const breadcrumbSchema = {
           </article>
         ))}
       </div>
+      <div class="inline-cta reveal">
+        <span class="inline-cta-text">Niste našli odgovor?</span>
+        <CtaStrip variant="light" />
+      </div>
     </div>
   </section>
 
@@ -117,7 +127,7 @@ const breadcrumbSchema = {
         <h2 class="section-h">Osporite nezakonitu odluku državnog organa</h2>
         <p>Državni organ je doneo odluku na vašu štetu? Zakažite konsultacije i proverite da li se ta odluka može pravno osporiti.</p>
       </div>
-      <a class="btn-brick" href="/kontakt">Kontaktirajte nas</a>
+      <CtaStrip variant="dark" />
     </div>
   </section>
 

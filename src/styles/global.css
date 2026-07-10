@@ -178,6 +178,22 @@ footer { background: var(--dark); }
 .cta-copy p { color: rgba(255,255,255,0.72); line-height: 1.8; max-width: 640px; }
 @media (max-width: 900px) { .faq-grid { grid-template-columns: 1fr; } .page-cta-inner { padding: 44px 24px; } .content-grid { padding: 44px 24px; } }
 
+/* ─── CTA STRIP (Zakažite konsultaciju + Pozovite nas) ─── */
+.cta-strip { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.cta-strip-phone { font-family: var(--serif); font-size: 14px; text-decoration: none; transition: color 0.2s; }
+.cta-strip-light .cta-strip-phone { color: var(--dark); }
+.cta-strip-light .cta-strip-phone:hover { color: var(--brick); }
+.cta-strip-dark .cta-strip-phone { color: rgba(253,248,240,0.75); }
+.cta-strip-dark .cta-strip-phone:hover { color: #fff; }
+
+.page-hero-cta { margin-top: 24px; }
+.inline-cta-hint { font-size: 12px; color: rgba(253,248,240,0.5); text-transform: uppercase; letter-spacing: 1px; }
+
+.inline-cta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 8px; }
+.inline-cta-text { font-family: var(--serif); font-size: 16px; color: var(--dark); }
+.faq-section .inline-cta { max-width: 820px; margin: 32px auto 0; padding: 32px 64px 0; border-top: 1px solid var(--tan); }
+@media (max-width: 600px) { .faq-section .inline-cta { padding: 24px 24px 0; } }
+
 /* ─── HUB SERVICES GRID (hub → sub-page cards) ─── */
 .hub-services-section { border-top: 3px solid var(--dark); border-bottom: 3px solid var(--dark); background: var(--cream2); }
 .hub-services-grid { display: grid; grid-template-columns: repeat(3, 1fr); }

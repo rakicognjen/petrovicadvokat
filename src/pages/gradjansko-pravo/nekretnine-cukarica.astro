@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaStrip from '../../components/CtaStrip.astro';
 
 const faq = [
   {
@@ -56,8 +57,9 @@ const breadcrumbSchema = {
         <li><span>Nekretnine</span></li>
       </ul>
       <div class="page-hero-kicker">Nekretnine</div>
-      <h1 class="page-hero-h">Advokat za nekretnine i imovinsko-pravne odnose – Čukarica</h1>
+      <h1 class="page-hero-h">Advokat za nekretnine i imovinsko-pravne odnose na Čukarici</h1>
       <p class="page-hero-deck">Pravna sigurnost pri kupovini, prodaji, uknjižbi i legalizaciji nekretnina u Žarkovu i okolini.</p>
+      <div class="page-hero-cta"><CtaStrip variant="dark" /></div>
     </div>
   </section>
 
@@ -98,6 +100,10 @@ const breadcrumbSchema = {
           <li>Deoba zajedničke imovine i rešavanje suvlasničkih sporova.</li>
         </ul>
       </article>
+      <div class="inline-cta reveal">
+        <p class="inline-cta-text">Imate pitanje o vašem slučaju?</p>
+        <CtaStrip variant="light" />
+      </div>
     </div>
   </section>
 
@@ -114,6 +120,10 @@ const breadcrumbSchema = {
           </article>
         ))}
       </div>
+      <div class="inline-cta reveal">
+        <span class="inline-cta-text">Niste našli odgovor?</span>
+        <CtaStrip variant="light" />
+      </div>
     </div>
   </section>
 
@@ -124,7 +134,7 @@ const breadcrumbSchema = {
         <h2 class="section-h">Ne rizikujte kupovinu nekretnine bez pravne provere</h2>
         <p>Zakažite konsultaciju u kancelariji na Čukarici i zaštitite se od hipoteka, nezakonite uknjižbe i drugih slabih tačaka u transakciji.</p>
       </div>
-      <a class="btn-brick" href="/kontakt">Kontaktirajte nas</a>
+      <CtaStrip variant="dark" />
     </div>
   </section>
 

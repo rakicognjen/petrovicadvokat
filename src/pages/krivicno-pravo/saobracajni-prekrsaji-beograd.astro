@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaStrip from '../../components/CtaStrip.astro';
 
 const faq = [
   {
@@ -56,8 +57,9 @@ const breadcrumbSchema = {
         <li><span>Saobraćajni prekršaji</span></li>
       </ul>
       <div class="page-hero-kicker">Saobraćajni prekršaji</div>
-      <h1 class="page-hero-h">Advokat za saobraćajne prekršaje i saobraćajna krivična dela – Beograd</h1>
+      <h1 class="page-hero-h">Advokat za saobraćajne prekršaje i saobraćajna krivična dela u Beogradu</h1>
       <p class="page-hero-deck">Odbrana pred prekršajnim i krivičnim sudom kada je na kocki vaša vozačka dozvola i lična sloboda.</p>
+      <div class="page-hero-cta"><CtaStrip variant="dark" /></div>
     </div>
   </section>
 
@@ -89,9 +91,13 @@ const breadcrumbSchema = {
       </article>
 
       <article class="content-section">
-        <h2>Interni linkovi</h2>
-        <p>Ako je nezgoda dovela do povrede, pogledajte <a href="/gradjansko-pravo/naknada-stete-beograd">Naknadu štete</a>. Za teže prekršajne slučajeve povezane sa krivičnim postupkom, vidite <a href="/krivicno-pravo/krivicna-odbrana-beograd">Krivičnu odbranu</a>.</p>
+        <h2>Povezane usluge</h2>
+        <p>Ako je nezgoda dovela do povrede, pogledajte <a href="/gradjansko-pravo/naknada-stete-beograd">Naknadu štete</a>. Za teže prekršajne slučajeve povezane sa krivičnim postupkom, vidite <a href="/krivicno-pravo/krivicna-odbrana-beograd">odbranu u krivičnom postupku</a>.</p>
       </article>
+      <div class="inline-cta reveal">
+        <p class="inline-cta-text">Imate pitanje o vašem slučaju?</p>
+        <CtaStrip variant="light" />
+      </div>
     </div>
   </section>
 
@@ -108,6 +114,10 @@ const breadcrumbSchema = {
           </article>
         ))}
       </div>
+      <div class="inline-cta reveal">
+        <span class="inline-cta-text">Niste našli odgovor?</span>
+        <CtaStrip variant="light" />
+      </div>
     </div>
   </section>
 
@@ -118,7 +128,7 @@ const breadcrumbSchema = {
         <h2 class="section-h">Sačuvajte vozačku dozvolu</h2>
         <p>Zakažite konsultaciju odmah i zaštitite svoj ostanak u saobraćaju dok traje postupak.</p>
       </div>
-      <a class="btn-brick" href="/kontakt">Kontaktirajte nas</a>
+      <CtaStrip variant="dark" />
     </div>
   </section>
 
