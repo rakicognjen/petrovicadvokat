@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import scalesEmblem from '../assets/scales-emblem.png';
+
 const { pathname } = Astro.url;
 
 const navGroups = [
@@ -47,11 +50,14 @@ function isGroupActive(base: string) {
 
 <div class="masthead">
   <div class="masthead-top">
-    <div class="masthead-date">Beograd · Advokatska kancelarija</div>
+    <div class="masthead-spacer"></div>
     <div class="masthead-brand">
       <a href="/">
-        <div class="masthead-title">Marko A. Petrović</div>
-        <div class="masthead-subtitle">Advokat · Beograd</div>
+        <Image class="masthead-logo" src={scalesEmblem} alt="" width={56} height={79} densities={[1, 2, 3]} />
+        <div class="masthead-brand-text">
+          <div class="masthead-title">Marko A. Petrović</div>
+          <div class="masthead-subtitle">Advokat · Beograd</div>
+        </div>
       </a>
     </div>
     <a class="masthead-phone" href="tel:0628226111">
