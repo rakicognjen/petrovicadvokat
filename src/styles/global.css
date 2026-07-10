@@ -142,8 +142,12 @@ footer { background: var(--dark); }
 /* ─── SECTION HEADERS (reused pattern across pages) ─── */
 .section-header { padding: 28px 40px; border-bottom: 2px solid var(--dark); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; background: var(--cream); }
 .section-h { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--dark); }
-.section-h-label { font-size: 9px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: var(--gray); margin-right: 16px; }
-@media (max-width: 600px) { .section-header { padding: 24px 20px; } }
+.section-h-label { font-size: 9px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: var(--gray); margin-right: 16px; margin-bottom: 8px; }
+@media (max-width: 600px) {
+  .section-header { padding: 24px 20px; }
+  .section-h-label { display: block; margin-right: 0; margin-bottom: 8px; }
+  .section-h { display: block; }
+}
 
 /* ─── PAGE HERO (inner pages) ─── */
 .page-hero { border-bottom: 3px solid var(--dark); background: linear-gradient(180deg, rgba(30,21,10,0.72) 0%, rgba(30,21,10,0.96) 100%), url('/subpage-hero.webp') center/cover no-repeat; padding: 64px; }
@@ -166,7 +170,7 @@ footer { background: var(--dark); }
 .content-list li { margin-bottom: 10px; }
 .service-note { background: var(--linen); border-left: 4px solid var(--brick); border-bottom: none; padding: 24px 28px; margin-bottom: 40px; }
 .service-note h2 { font-size: 22px; }
-.faq-section { border-top: 3px solid var(--dark); background: var(--cream2); padding: 64px 0 80px; }
+.faq-section { border-top: 3px solid var(--dark); background: var(--cream2); padding: 0 0 80px; }
 .faq-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--tan); border-left: 1px solid var(--tan); padding-top: 0; margin-top: 24px; }
 .faq-item { padding: 32px; border-right: 1px solid var(--tan); border-bottom: 1px solid var(--tan); }
 .faq-question { font-family: var(--serif); font-size: 18px; color: var(--dark); margin-bottom: 16px; }
