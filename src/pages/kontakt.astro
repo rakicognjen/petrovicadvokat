@@ -27,14 +27,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="kontakt-items">
           <div class="kontakt-item"><div class="kontakt-lbl">Telefon</div><div class="kontakt-val"><a href="tel:0628226111">062/822-6-111</a></div></div>
           <div class="kontakt-item"><div class="kontakt-lbl">Email</div><div class="kontakt-val"><a href="mailto:mpetrovic694@gmail.com">mpetrovic694@gmail.com</a></div></div>
-          <div class="kontakt-item"><div class="kontakt-lbl">Adresa</div><div class="kontakt-val">Ul. Frontovska 24, 11030 Beograd</div></div>
+          <div class="kontakt-item"><div class="kontakt-lbl">Adresa</div><div class="kontakt-val">Ul. Frontovska, Beograd</div></div>
           <div class="kontakt-item"><div class="kontakt-lbl">Radno vreme</div><div class="kontakt-val">Pon – Pet: 09:00 – 17:00</div></div>
         </div>
-        <a class="btn-brick" style="margin-top:28px;" href="https://www.google.com/maps/search/?api=1&query=Ul.+Frontovska+24+11030+Beograd" target="_blank" rel="noopener">Otvorite mapu →</a>
+        <a class="btn-brick" style="margin-top:28px;" href="https://www.google.com/maps/search/?api=1&query=Ul.+Frontovska+Beograd" target="_blank" rel="noopener">Otvorite mapu →</a>
       </div>
       <div class="kontakt-right reveal d2">
         <h2 class="kontakt-h" style="color:var(--cream); font-size:clamp(22px,3vw,32px);">Pošaljite upit</h2>
-        <form id="contact-form" class="kontakt-form">
+        <form id="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="kontakt-form">
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="k-honeypot" hidden>
+            <label>Ne popunjavajte ovo polje: <input name="bot-field" /></label>
+          </p>
           <label class="k-field">
             <span>Ime i prezime</span>
             <input type="text" name="name" required />
@@ -52,7 +56,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <textarea name="message" rows="5" required></textarea>
           </label>
           <button type="submit" class="btn-brick">Pošalji upit →</button>
-          <p class="k-note">Dugme otvara vaš email program sa popunjenom porukom, spremnom za slanje na mpetrovic694@gmail.com.</p>
         </form>
       </div>
     </div>
@@ -61,6 +64,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
+
+  function encodeFormData(formData: FormData) {
+    const params = new URLSearchParams();
+    formData.forEach((value, key) => params.append(key, String(value)));
+    return params.toString();
+  }
+
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
     const data = new FormData(form);
@@ -68,6 +78,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     const email = String(data.get('email') || '');
     const phone = String(data.get('phone') || '');
     const message = String(data.get('message') || '');
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encodeFormData(data),
+    }).catch(() => {});
+
     const subject = encodeURIComponent(`Upit sa sajta od ${name}`);
     const body = encodeURIComponent(
       `Ime i prezime: ${name}\nEmail: ${email}\nTelefon: ${phone}\n\nPoruka:\n${message}`
@@ -93,6 +110,5 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .k-field { display: flex; flex-direction: column; gap: 6px; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: rgba(253,248,240,0.5); font-weight: 600; }
   .k-field input, .k-field textarea { font-family: var(--sans); font-size: 14px; color: var(--dark); background: var(--cream); border: none; padding: 12px 14px; resize: vertical; }
   .k-field input:focus, .k-field textarea:focus { outline: 2px solid var(--brick3); outline-offset: 0; }
-  .k-note { font-size: 11px; color: rgba(253,248,240,0.35); font-weight: 300; line-height: 1.6; }
   @media (max-width: 900px) { .kontakt-inner { grid-template-columns: 1fr; } .kontakt-left { padding: 44px 24px; border-right: none; } .kontakt-right { padding: 44px 24px; } }
 </style>
