@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faq = [
+  {
+    question: 'Koliko traje postupak sporazumnog razvoda braka?',
+    answer: 'Sporazumni razvod obično se završava u roku od nekoliko nedelja do par meseci, ukoliko su svi uslovi jasno definisani i sud prihvati predloženi sporazum o roditeljskom pravu, alimentaciji i podeli imovine.',
+  },
+  {
+    question: 'Da li je moguće razvesti se bez suđenja?',
+    answer: 'Da, kada supružnici postignu saglasnost oko svih ključnih pitanja i podnesu sporazumni predlog, razvodi se mogu završiti na jednom ročištu bez potrebe za punim sudskim postupkom.',
+  },
+  {
+    question: 'Ko određuje visinu alimentacije za dete?',
+    answer: 'Visina alimentacije određuje se prema potrebama deteta, uzrastu, troškovima školovanja i medicinske zaštite, kao i materijalnim mogućnostima roditelja koji plaća alimentaciju.',
+  },
+  {
+    question: 'Mora li supružnik lično da prisustvuje ročištu za razvod?',
+    answer: 'U razvodu po tužbi prisustvo je najčešće neophodno na ročištu, ali za druge radnje i komunikaciju advokat može predstavljati stranku na osnovu overenog punomoćja.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+---
+
+<BaseLayout
+  title="Advokat za razvod braka Čukarica | Marko A. Petrović"
+  description="Advokat za razvod braka na Čukarici i u Žarkovu. Sporazumni razvod, podela imovine, alimentacija i poveravanje dece. Zakažite konsultacije odmah."
+>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-kicker">Porodično pravo</div>
+      <h1 class="page-hero-h">Advokat za razvod braka – Čukarica i Žarkovo</h1>
+      <p class="page-hero-deck">Stručna, diskretna i pragmatična pravna pomoć u sporazumnim i tužbenim razvodima, uz zaštitu prava dece i pravnu sigurnost za imovinu.</p>
+    </div>
+  </section>
+
+  <section class="page-body">
+    <div class="wrap content-grid">
+      <article class="content-section">
+        <h2>Razvod braka uz manje stresa i neizvesnosti</h2>
+        <p>Porodični sporovi, a naročito razvod braka, predstavljaju jedne od najstresnijih i najemotivnijih događaja u životu pojedinca. Pored ličnih izazova, ovi postupci sa sobom donose i niz kompleksnih pravnih pitanja koja se tiču vaše budućnosti, imovine i, ono što je najvažnije, budućnosti vaše dece.</p>
+        <p>Naša advokatska kancelarija pruža stručnu, diskretnu i profesionalnu pravnu pomoć u oblasti porodičnog prava. Cilj je da kroz ceo proces prođete sa što manje stresa, težeći mirnim i sporazumnim rešenjima kad god je to moguće, ali i beskompromisno štiteći vaša prava pred nadležnim organima.</p>
+      </article>
+
+      <article class="content-section">
+        <h2>Sporazumni razvod i razvod po tužbi</h2>
+        <p>Prema zakonu, brak se može razvesti sporazumnim predlogom ili podnošenjem tužbe za razvod braka. Sporazumni razvod je znatno brži, ekonomičniji i manje stresan način prestanka braka.</p>
+        <p>Advokat u vaše ime sastavlja Sporazum o razvodu, koji mora da sadrži pismeni dogovor o vršenju roditeljskog prava, visini alimentacije, načinu viđanja dece sa drugim roditeljem i raspodeli zajedničke imovine.</p>
+        <p>Razvod po tužbi pokreće se kada sporazum nije moguć zbog nesuglasica oko dece ili imovine. Tužbu može podneti svaki supružnik ako su bračni odnosi ozbiljno i trajno poremećeni ili ako se objektivno ne može ostvariti zajednica života.</p>
+      </article>
+
+      <article class="content-section">
+        <h2>Pravna pomoć u svim porodičnim predmetima</h2>
+        <ul class="content-list">
+          <li>Sastavljanje sporazuma o razvodu braka, tužbi za razvod i odgovora na tužbu.</li>
+          <li>Zastupanje u postupcima za poveravanje dece, izmenu odluke o poveravanju i uređenje modela viđanja.</li>
+          <li>Pokretanje postupaka za utvrđivanje, povećanje ili smanjenje alimentacije.</li>
+          <li>Zastupanje u postupcima za podelu zajedničke imovine i bračnu tekovinu.</li>
+          <li>Sastavljanje predbračnih i bračnih ugovora, kao i mera zaštite od nasilja u porodici.</li>
+        </ul>
+      </article>
+
+      <article class="content-section service-note">
+        <h2>Advokatska kancelarija na Čukarici (Žarkovo)</h2>
+        <p>Kada prolazite kroz osetljive porodične postupke, blizina i dostupnost pravnog zastupnika su od ključnog značaja. Naša kancelarija u Žarkovu omogućava klijentima iz Čukarice, Banovog brda, Ceraka, Bele vode, Filmskog grada i okolnih naselja brze konsultacije bez gubljenja vremena u saobraćajnim gužvama.</p>
+        <p>Redovno postupamo pred nadležnim institucijama na teritoriji opštine Čukarica, prvenstveno pred Drugim osnovnim sudom u Beogradu i odeljenjima Centra za socijalni rad.</p>
+      </article>
+
+      <article class="content-section">
+        <h2>Interni linkovi</h2>
+        <p>Za pitanja nasleđa i bračnih ugovora pogledajte <a href="/gradjansko-pravo/nasledno-pravo-beograd">Nasledno pravo</a>. Ako je razvod povezan sa imovinom, otvorite <a href="/gradjansko-pravo/nekretnine-cukarica">Nekretnine i imovinsko-pravni odnosi</a>. U slučajevima nasilja u porodici, preporučujemo i <a href="/gradjansko-pravo/naknada-stete-beograd">Naknada štete</a>.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="wrap">
+      <div class="section-header">
+        <div><span class="section-h-label">FAQ</span> <span class="section-h">Često postavljana pitanja</span></div>
+      </div>
+      <div class="faq-grid">
+        {faq.map((item) => (
+          <article class="faq-item reveal">
+            <h3 class="faq-question">{item.question}</h3>
+            <p class="faq-answer">{item.answer}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-cta-section">
+    <div class="wrap page-cta-inner reveal">
+      <div class="cta-copy">
+        <div class="section-h-label">Zakažite konsultaciju</div>
+        <h2 class="section-h">Pripremite razvod sa sigurnošću i podrškom</h2>
+        <p>Obratite se kancelariji u Žarkovu dok su rokovi i prava jasni. Pošaljite poruku ili nas pozovite za brzu procenu slučaja.</p>
+      </div>
+      <div>
+        <a class="btn-brick" href="/kontakt">Kontaktirajte nas</a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</BaseLayout>

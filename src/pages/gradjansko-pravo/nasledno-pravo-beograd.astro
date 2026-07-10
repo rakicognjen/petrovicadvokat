@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faq = [
+  {
+    question: 'Koliko traje ostavinski postupak u Beogradu?',
+    answer: 'Ukeliko su odnosi među naslednicima jasni, postupak može trajati nekoliko meseci. U slučaju spora ili osporavanja testamenta, trajanje može da se produži znatno duže.',
+  },
+  {
+    question: 'Kako osporiti ugovor o doživotnom izdržavanju?',
+    answer: 'Ugovor se može osporiti pred sudom na osnovu razloga poput neispunjenog uslova, nedovoljno jasnog dogovora ili nemogućnosti primaoca da razume obaveze.',
+  },
+  {
+    question: 'Ko ima pravo na nužni deo?',
+    answer: 'Pravo na nužni deo imaju deca, usvojenici, supružnik i roditelji preminulog, a iznosi 50% onoga što bi naslednik dobio po zakonu.',
+  },
+  {
+    question: 'Šta je najvažnije kod testa mentarnog testamenta?',
+    answer: 'Testament mora biti jasno izražen, potpisan u prisustvu svedoka i sačinjeni u skladu sa zakonom, kako bi bio pravno važeći i teško osporiv.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+---
+
+<BaseLayout
+  title="Advokat za nasledno pravo Beograd | Marko A. Petrović"
+  description="Advokat za ostavinski postupak, testamente i ugovore o doživotnom izdržavanju u Beogradu i na Čukarici. Zaštitite svoj nužni deo nasledstva."
+>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-kicker">Nasledno pravo</div>
+      <h1 class="page-hero-h">Advokat za nasledno pravo – Ostavinski postupci i nasledni sporovi</h1>
+      <p class="page-hero-deck">Pružamo pravnu podršku pri ostavinskim postupcima, testamentima i zaštiti prava na nužni deo u Beogradu i na Čukarici.</p>
+    </div>
+  </section>
+
+  <section class="page-body">
+    <div class="wrap content-grid">
+      <article class="content-section">
+        <h2>Ostavinski postupak i podela imovine</h2>
+        <p>Rešavanje pitanja imovine nakon smrti bliske osobe često je jednako emocionalno koliko i pravno komplikovano. Naša kancelarija pruža stručno vođenje kroz ostavinske postupke, težeći mirnom rešenju među naslednicima.</p>
+        <p>Kada sud pokrene ostavinski postupak, on ga obično poverava notarima na teritoriji prebivališta ostavioca. Advokat priprema klijenta za ročište, prikuplja dokaze o imovini i zastupa ga pri davanju nasledničke izjave.</p>
+      </article>
+
+      <article class="content-section">
+        <h2>Testamenti i ugovori o izdržavanju</h2>
+        <p>Prevencija je najbolji lek za porodične i komšijske sporove nakon smrti. Pravno ispravno sastavljen testament ili ugovor o doživotnom izdržavanju garantuje da volja ostavioca bude poštovana.</p>
+        <ul class="content-list">
+          <li>Sastavljanje alografskog testamenta i sudskog testamenta.</li>
+          <li>Ugovori o doživotnom izdržavanju sa jasno definisanim obavezama.</li>
+          <li>Osporavanje testamenta ili ugovora zbog formalnih i stvarnih mana.</li>
+        </ul>
+      </article>
+
+      <article class="content-section service-note">
+        <h2>Zaštita prava na nužni deo nasledstva</h2>
+        <p>Često ostavilac zaobilazi najbliže srodnike poklonima pre smrti. Zakon štiti decu, supružnika i roditelje kroz institut nužnog dela, koji iznosi 50% onoga što bi naslednik stekao po zakonu.</p>
+        <p>Advokat pokreće postupke radi smanjenja isporuka testamentom ili vraćanja poklona kako bi se ispoštovalo pravo na nužni deo.</p>
+      </article>
+
+      <article class="content-section">
+        <h2>Interni linkovi</h2>
+        <p>Za pitanja o bračnim ugovorima i razvodu pogledajte <a href="/gradjansko-pravo/razvod-braka-cukarica">Razvod braka</a>. U slučaju da je u pitanju nasleđena imovina, vidite i <a href="/gradjansko-pravo/nekretnine-cukarica">Nekretnine</a> i <a href="/gradjansko-pravo/smetanje-poseda-cukarica">Smetanje poseda</a>.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="wrap">
+      <div class="section-header">
+        <div><span class="section-h-label">FAQ</span> <span class="section-h">Najčešća pitanja</span></div>
+      </div>
+      <div class="faq-grid">
+        {faq.map((item) => (
+          <article class="faq-item reveal">
+            <h3 class="faq-question">{item.question}</h3>
+            <p class="faq-answer">{item.answer}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-cta-section">
+    <div class="wrap page-cta-inner reveal">
+      <div class="cta-copy">
+        <div class="section-h-label">Zaštitite nasledstvo</div>
+        <h2 class="section-h">Pobrinite se da vaša imovina i volja budu bezbedni</h2>
+        <p>Obratite se advokatu za nasledno pravo u Beogradu i sprečite porodične sporove pre nego što eskaliraju.</p>
+      </div>
+      <a class="btn-brick" href="/kontakt">Kontaktirajte nas</a>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</BaseLayout>

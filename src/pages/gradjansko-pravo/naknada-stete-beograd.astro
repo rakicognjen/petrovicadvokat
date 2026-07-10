@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faq = [
+  {
+    question: 'Koliki je rok za podnošenje zahteva za naknadu štete?',
+    answer: 'Opšti subjektivni rok iznosi 3 godine od dana saznanja za štetu, a objektivni rok je 5 godina od nastanka štete. Kod krivičnih dela rok može biti duži.',
+  },
+  {
+    question: 'Šta da radim nakon saobraćajne nesreće?',
+    answer: 'Pozovite policiju radi uviđaja, obavezno se javite lekaru i zatražite dokumentaciju o povredama, jer lekarski nalazi su ključni dokaz za naknadu štete.',
+  },
+  {
+    question: 'Mora li da prihvatim prvu ponudu osiguravajuće kuće?',
+    answer: 'Ne. Prva ponuda je obično niža od stvarne vrednosti štete, pa advokat u vaše ime ulaže prigovor i vodi pregovore radi pravičnog iznosa.',
+  },
+  {
+    question: 'Ko može tražiti naknadu nematerijalne štete?',
+    answer: 'Nematerijalnu štetu može tražiti lice koje je pretrpelo fizički bol, strah ili naruženost, kao i najbliži srodnici u slučaju smrti voljene osobe.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+---
+
+<BaseLayout
+  title="Advokat za naknadu štete Beograd | Marko A. Petrović"
+  description="Doživeli ste saobraćajnu nesreću ili povredu na radu? Advokat za naknadu materijalne i nematerijalne štete u Beogradu. Maksimalna odšteta od osiguranja."
+>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-kicker">Naknada štete</div>
+      <h1 class="page-hero-h">Advokat za naknadu štete – Saobraćajne nezgode i povrede</h1>
+      <p class="page-hero-deck">Pravni zastupnik za maksimalnu nadoknadu štete uz potpunu podršku u dokazivanju povreda i troškova.</p>
+    </div>
+  </section>
+
+  <section class="page-body">
+    <div class="wrap content-grid">
+      <article class="content-section">
+        <h2>Odšteta za povrede i oštećenja</h2>
+        <p>Pretrpljeni strah, fizički bol ili uništena imovina imaju svoju zakonsku cenu. Osiguravajuće kuće često nude minimalne iznose, pa je stručna pravna pomoć ključna za ostvarivanje maksimalne zakonske odštete.</p>
+        <p>Advokat preuzima komunikaciju sa osiguranjem, podnosi odštetne zahteve i, ako je potrebno, podiže tužbe pred sudom.</p>
+      </article>
+
+      <article class="content-section">
+        <h2>Saobraćajne nezgode i povrede</h2>
+        <ul class="content-list">
+          <li>Naplata nematerijalne štete za fizički bol, strah i traumu.</li>
+          <li>Naplata materijalne štete na vozilu, troškova popravke i šlepa.</li>
+          <li>Povrede na radu i javnim površinama.</li>
+        </ul>
+        <p>Pored saobraćaja, štetu pomagamo i u slučajevima povreda na radnom mestu, ujeda psa lutalice ili pada na neobeleženoj javnoj površini.</p>
+      </article>
+
+      <article class="content-section service-note">
+        <h2>Maksimalna naknada bez skrivenih troškova</h2>
+        <p>Prikupljamo medicinsku dokumentaciju i angažujemo veštake koji utvrđuju visinu štete. Klijent se oslobađa administrativnog tereta dok advokat osigurava pravičnu isplatu.</p>
+      </article>
+
+      <article class="content-section">
+        <h2>Interni linkovi</h2>
+        <p>Ako je nezgoda prerasla u krivični postupak, pogledajte <a href="/krivicno-pravo/saobracajni-prekrsaji-beograd">Saobraćajne prekršaje</a>. Za zaštitu prava na posed i smetanje poseda, pogledajte <a href="/gradjansko-pravo/smetanje-poseda-cukarica">Smetanje poseda</a>.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="wrap">
+      <div class="section-header">
+        <div><span class="section-h-label">FAQ</span> <span class="section-h">Najčešća pitanja</span></div>
+      </div>
+      <div class="faq-grid">
+        {faq.map((item) => (
+          <article class="faq-item reveal">
+            <h3 class="faq-question">{item.question}</h3>
+            <p class="faq-answer">{item.answer}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-cta-section">
+    <div class="wrap page-cta-inner reveal">
+      <div class="cta-copy">
+        <div class="section-h-label">Hitna pravna pomoć</div>
+        <h2 class="section-h">Ne pristajte na minimalne ponude osiguranja</h2>
+        <p>Obratite se advokatu na Čukarici i obezbedite maksimalnu nadoknadu štete bez skrivenih uslova.</p>
+      </div>
+      <a class="btn-brick" href="/kontakt">Kontaktirajte nas</a>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</BaseLayout>

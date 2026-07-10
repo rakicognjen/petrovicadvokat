@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faq = [
+  {
+    question: 'Šta da radim ako odbijem alkotestiranje na licu mesta?',
+    answer: 'Odbijanje alkotestiranja se tretira strogo i može rezultirati krivičnim posledicama. Angažovanje advokata je izuzetno važno kako bi se osporila procedura i zaštitila prava osumnjičenog.',
+  },
+  {
+    question: 'Mogu li da vozim dok traje prekršajni postupak?',
+    answer: 'Da, sve dok Prekršajni sud ne donese pravosnažnu presudu i dok ne dobijete izvršno rešenje, imate pravo da upravljate vozilom.',
+  },
+  {
+    question: 'Kako se računa zastarelost u saobraćajnim prekršajima?',
+    answer: 'Prekršajni postupak zastareva za godinu dana od prestupa, ali svaki procesni čin suda prekida ovu zastarelost i ponovo je pokreće.',
+  },
+  {
+    question: 'Da li se alkotest može osporiti?',
+    answer: 'Da, moguće je osporiti proceduru alkotestiranja, kvalitet instrumenta, obuku službenika i druge okolnosti koje mogu uticati na valjanost merenja.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+---
+
+<BaseLayout
+  title="Advokat za saobraćajne prekršaje Beograd | Marko A. Petrović"
+  description="Dobili ste poziv za Prekršajni sud zbog alkohola, bodova ili udesa? Advokat za saobraćajne prekršaje i krivična dela u Beogradu. Sačuvajte dozvolu."
+>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-kicker">Saobraćajni prekršaji</div>
+      <h1 class="page-hero-h">Advokat za saobraćajne prekršaje i saobraćajna krivična dela – Beograd</h1>
+      <p class="page-hero-deck">Odbrana pred prekršajnim i krivičnim sudom kada je na kocki vaša vozačka dozvola i lična sloboda.</p>
+    </div>
+  </section>
+
+  <section class="page-body">
+    <div class="wrap content-grid">
+      <article class="content-section">
+        <h2>Odbrana pred Prekršajnim sudom</h2>
+        <p>Saobraćajni propisi su rigorozni, a kazne uključuju novčane kazne, zabranu upravljanja i kaznene bodove. Stručna odbrana često pravi razliku između ublažene kazne i trajnog gubitka dozvole.</p>
+        <ul class="content-list">
+          <li>Osporavanje zapisnika policije i proceduralnih grešaka.</li>
+          <li>Planiranje strategije za vožnju pod dejstvom alkohola ili psihoaktivnih supstanci.</li>
+          <li>Zastupanje kod prekoračenja brzine, prolaska kroz crveno i nepropisnog preticanja.</li>
+        </ul>
+      </article>
+
+      <article class="content-section">
+        <h2>Teža saobraćajna krivična dela</h2>
+        <p>Kada prekršaj preraste u krivično delo zbog teških povreda ili smrtnog ishoda, postupak se vodi pred osnovnim ili višim sudom.</p>
+        <ul class="content-list">
+          <li>Ugrožavanje javnog saobraćaja.</li>
+          <li>Nepružanje pomoći povređenom licu.</li>
+          <li>Angažovanje veštaka za rekonstrukciju nezgode.</li>
+        </ul>
+      </article>
+
+      <article class="content-section service-note">
+        <h2>Sporazum o priznanju prekršaja</h2>
+        <p>Kada je krivica očigledna, pregovori sa MUP-om mogu ublažiti posledice. Cilj je smanjiti zabranu upravljanja i novčanu kaznu na zakonski minimum.</p>
+      </article>
+
+      <article class="content-section">
+        <h2>Interni linkovi</h2>
+        <p>Ako je nezgoda dovela do povrede, pogledajte <a href="/gradjansko-pravo/naknada-stete-beograd">Naknadu štete</a>. Za teže prekršajne slučajeve povezane sa krivičnim postupkom, vidite <a href="/krivicno-pravo/krivicna-odbrana-beograd">Krivičnu odbranu</a>.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="wrap">
+      <div class="section-header">
+        <div><span class="section-h-label">FAQ</span> <span class="section-h">Najčešća pitanja</span></div>
+      </div>
+      <div class="faq-grid">
+        {faq.map((item) => (
+          <article class="faq-item reveal">
+            <h3 class="faq-question">{item.question}</h3>
+            <p class="faq-answer">{item.answer}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-cta-section">
+    <div class="wrap page-cta-inner reveal">
+      <div class="cta-copy">
+        <div class="section-h-label">Hitna odbrana</div>
+        <h2 class="section-h">Sačuvajte vozačku dozvolu</h2>
+        <p>Zakažite konsultaciju odmah i zaštitite svoj ostanak u saobraćaju dok traje postupak.</p>
+      </div>
+      <a class="btn-brick" href="/kontakt">Kontaktirajte nas</a>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</BaseLayout>

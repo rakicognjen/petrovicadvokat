@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faq = [
+  {
+    question: 'Koji je rok za podnošenje tužbe Upravnom sudu?',
+    answer: 'Rok iznosi 30 dana od dostavljanja drugostepenog rešenja. Ovaj rok je prekluzivan, pa njegovo propuštanje gubi pravo na sudsku zaštitu.',
+  },
+  {
+    question: 'Šta znači ćutanje administracije?',
+    answer: 'Ćutanje administracije je situacija kada organ ne donese odluku u rokovima, nakon čega se podnosi požurnica, a zatim može uslediti tužba Upravnom sudu.',
+  },
+  {
+    question: 'Da li tužba automatski odlaže izvršenje rešenja?',
+    answer: 'Ne automatski. Međutim, advokat može podneti zahtev za odlaganje izvršenja ukoliko bi izvršenje nanelo teško popravljivu štetu.',
+  },
+  {
+    question: 'Koji organi najčešće donose sporna rešenja?',
+    answer: 'Poreska uprava, Katastar nepokretnosti, građevinski sekretarijati i inspekcije su najčešći organi čija sporna rešenja zahtevaju upravni spor.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+---
+
+<BaseLayout
+  title="Advokat za upravne sporove Beograd | Marko A. Petrović"
+  description="Odbijena vam je žalba ili građevinska dozvola? Advokat za tužbe Upravnom sudu i žalbe na rešenja Poreske uprave i Katastra u Beogradu."
+>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-kicker">Upravno pravo</div>
+      <h1 class="page-hero-h">Advokat za upravne sporove i postupke pred državnim organima – Beograd</h1>
+      <p class="page-hero-deck">Pravno zastupanje protiv nerešenih ili nezakonitih odluka državnih organa, uz sve administrativne i sudske faze.</p>
+    </div>
+  </section>
+
+  <section class="page-body">
+    <div class="wrap content-grid">
+      <article class="content-section">
+        <h2>Žalbe na rešenja i priprema pred institucijama</h2>
+        <p>Pre nego što se stigne do suda, pravna borba počinje pred državnim organima. Ključno je u zakonskom roku podneti formalno i pravno utemeljenu žalbu na rešenje koje vam nanosi štetu.</p>
+        <ul class="content-list">
+          <li>Sastavljanje žalbi na rešenja Poreske uprave.</li>
+          <li>Žalbe na odluke RGZ-a (Katastar nepokretnosti).</li>
+          <li>Pravna pomoć kod odbijenih zahteva za građevinske dozvole.</li>
+          <li>Zastupanje pred inspekcijskim organima.</li>
+        </ul>
+      </article>
+
+      <article class="content-section">
+        <h2>Upravni spor pred sudom</h2>
+        <p>Ako organ odbije žalbu ili uopšte ne odgovori, sledeći korak je tužba Upravnom sudu. Upravni spor je poslednja instanca za pravnu zaštitu protiv državne administracije.</p>
+        <ul class="content-list">
+          <li>Podnošenje tužbi Upravnom sudu Republike Srbije u Beogradu.</li>
+          <li>Zastupanje na usmenim raspravama.</li>
+          <li>Zahtevi za odlaganje izvršenja rešenja dok sud ne odluči.</li>
+        </ul>
+      </article>
+
+      <article class="content-section service-note">
+        <h2>Penzijska i socijalna prava</h2>
+        <p>Često se bavimo i sporovima oko PIO fonda, kao što su osporavanje gubitka radnog staža, odbijeni zahtevi za penziju ili invalidsku penziju.</p>
+      </article>
+
+      <article class="content-section">
+        <h2>Interni linkovi</h2>
+        <p>Ako je rešenje povezano sa katastrom ili građevinskim dozvolama, pogledajte <a href="/gradjansko-pravo/nekretnine-cukarica">Nekretnine</a>. Za slučajeve gde je rešenje dovelo do smetanja prava, vidite <a href="/gradjansko-pravo/smetanje-poseda-cukarica">Smetanje poseda</a>.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="wrap">
+      <div class="section-header">
+        <div><span class="section-h-label">FAQ</span> <span class="section-h">Najčešća pitanja</span></div>
+      </div>
+      <div class="faq-grid">
+        {faq.map((item) => (
+          <article class="faq-item reveal">
+            <h3 class="faq-question">{item.question}</h3>
+            <p class="faq-answer">{item.answer}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-cta-section">
+    <div class="wrap page-cta-inner reveal">
+      <div class="cta-copy">
+        <div class="section-h-label">Pravna zaštita</div>
+        <h2 class="section-h">Oborite nezakonitu odluku organa</h2>
+        <p>Prijavite problem odmah i angažujte advokata koji će vas zastupati u svim fazama upravnog spora.</p>
+      </div>
+      <a class="btn-brick" href="/kontakt">Kontaktirajte nas</a>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</BaseLayout>

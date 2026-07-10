@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faq = [
+  {
+    question: 'Zašto mi je potreban advokat za nekretnine ako agencija ima svog pravnika?',
+    answer: 'Agencijski pravnik štiti interes agencije. Vaš advokat štiti isključivo vaš pravni i finansijski interes, proverava istorijat nekretnine i zastupa vas u slučaju sporova.',
+  },
+  {
+    question: 'Šta treba proveriti pre kupovine stana u Žarkovu?',
+    answer: 'Pre kupovine proverava se list nepokretnosti, vlasnički status, postojanje hipoteka ili zabeležbi, građevinska i upotrebna dozvola, kao i eventualne poreske obaveze.',
+  },
+  {
+    question: 'Može li advokat da obavi uknjižbu umesto mene?',
+    answer: 'Da, advokat preuzima vođenje postupka pred Katastrom i prati sve faze uknjižbe do konačnog upisa vašeg prava svojine.',
+  },
+  {
+    question: 'Ko plaća porez na prenos apsolutnih prava?',
+    answer: 'Zakonski obveznik je prodavac, ali je praksa da ga kupac plaća u ime prodavca. Porez iznosi 2,5% od procenjene vrednosti nepokretnosti, uz moguće olakšice za prvokupce.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+---
+
+<BaseLayout
+  title="Advokat za nekretnine Čukarica | Marko A. Petrović"
+  description="Advokat za kupoprodaju, ugovore i legalizaciju nekretnina na Čukarici i u Žarkovu. Sigurna kupovina i uknjižba stana ili kuće. Pozovite nas."
+>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-kicker">Nekretnine</div>
+      <h1 class="page-hero-h">Advokat za nekretnine i imovinsko-pravne odnose – Čukarica</h1>
+      <p class="page-hero-deck">Pravna sigurnost pri kupovini, prodaji, uknjižbi i legalizaciji nekretnina u Žarkovu i okolini.</p>
+    </div>
+  </section>
+
+  <section class="page-body">
+    <div class="wrap content-grid">
+      <article class="content-section">
+        <h2>Sigurna kupovina i provera dokumentacije</h2>
+        <p>Kupovina ili prodaja nepokretnosti jedan je od najvećih finansijskih koraka. Nepažljivo sastavljen ugovor ili neprovereno vlasništvo mogu klijenta koštati celokupne ušteđevine.</p>
+        <p>Naša kancelarija pruža potpunu pravnu sigurnost u svakoj fazi transakcije, kako bi se klijenti zaštitili od prevara, skrivenih tereta i sporova sa prethodnim vlasnicima ili investitorima.</p>
+      </article>
+
+      <article class="content-section">
+        <h2>Sastavljanje ugovora i due diligence</h2>
+        <p>Pre svakog potpisa fokusiramo se na detaljnu proveru. Advokat vrši uvid u Katastar nepokretnosti i proverava da li na nekretnini postoje tereti, zabeležbe, hipoteke ili neplaćeni porezi pre isplate bilo kakvog iznosa.</p>
+        <ul class="content-list">
+          <li>Sastavljanje predugovora i ugovora o kupoprodaji.</li>
+          <li>Ugovori o poklonu i zameni nepokretnosti.</li>
+          <li>Komunikacija sa notarima i organizacija solemnizacije.</li>
+        </ul>
+      </article>
+
+      <article class="content-section service-note">
+        <h2>Legalizacija i uknjižba za Žarkovo</h2>
+        <p>Žarkovo, Bele vode i Cerak imaju mnoge objekte u procesu ozakonjenja ili sa problematičnom uknjižbom zbog individualne gradnje. Poznajući lokalne procedure, redovno zastupamo klijente pred nadležnim organima.</p>
+        <ul class="content-list">
+          <li>Zastupanje u postupcima ozakonjenja objekata pred opštinskim i gradskim telima.</li>
+          <li>Uknjižba prava svojine u Katastar nepokretnosti Čukarica.</li>
+          <li>Rešavanje statusa građevinskog zemljišta i konverzija prava korišćenja u pravo svojine.</li>
+        </ul>
+      </article>
+
+      <article class="content-section">
+        <h2>Ostale imovinske usluge</h2>
+        <p>Pored prometa nekretnina, pružamo pravnu podršku za sve oblike zaštite i raspolaganja imovinom.</p>
+        <ul class="content-list">
+          <li>Sastavljanje ugovora o zakupu stambenog i poslovnog prostora.</li>
+          <li>Uspostavljanje i brisanje hipoteka.</li>
+          <li>Deoba zajedničke imovine i rešavanje suvlasničkih sporova.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="wrap">
+      <div class="section-header">
+        <div><span class="section-h-label">FAQ</span> <span class="section-h">Najčešća pitanja</span></div>
+      </div>
+      <div class="faq-grid">
+        {faq.map((item) => (
+          <article class="faq-item reveal">
+            <h3 class="faq-question">{item.question}</h3>
+            <p class="faq-answer">{item.answer}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-cta-section">
+    <div class="wrap page-cta-inner reveal">
+      <div class="cta-copy">
+        <div class="section-h-label">Kontakt</div>
+        <h2 class="section-h">Ne rizikujte kupovinu nekretnine bez pravne provere</h2>
+        <p>Zakažite konsultaciju u kancelariji na Čukarici i zaštitite se od hipoteka, nezakonite uknjižbe i drugih slabih tačaka u transakciji.</p>
+      </div>
+      <a class="btn-brick" href="/kontakt">Kontaktirajte nas</a>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</BaseLayout>

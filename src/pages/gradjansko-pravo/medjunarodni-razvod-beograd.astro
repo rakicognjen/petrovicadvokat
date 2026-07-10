@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faq = [
+  {
+    question: 'Da li moram da dolazim u Srbiju ako imam advokata?',
+    answer: 'U većini slučajeva nije neophodno. Advokat može voditi postupak na osnovu specijalnog punomoćja overenog u ambasadi ili konzulatu Srbije.',
+  },
+  {
+    question: 'Šta je Apostille pečat i zašto mi treba?',
+    answer: 'Apostille potvrđuje autentičnost sudske presude iz inostranstva. Da bi Viši sud u Beogradu razmatrao priznanje presude, ona mora imati Apostille i sudski prevod osim ako nije iz države sa bilateralnim sporazumom.',
+  },
+  {
+    question: 'Da li strana presuda automatski važi u Srbiji?',
+    answer: 'Ne. Strana presuda mora proći postupak priznanja pred našim sudom da bi bila pravno važeća u Srbiji.',
+  },
+  {
+    question: 'Kako se rešava imovina u Srbiji nakon inostranog razvoda?',
+    answer: 'Nakon priznanja razvoda, potrebno je pokrenuti poseban postupak deobe zajedničke bračne tekovine u Srbiji za imovinu koja je ovde ostala.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+---
+
+<BaseLayout
+  title="Međunarodni razvod braka Beograd | Marko A. Petrović"
+  description="Razvodite se, a živite u inostranstvu ili je supružnik strani državljanin? Advokat za međunarodni razvod u Beogradu. Brzo priznanje stranih presuda u Srbiji."
+>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-kicker">Međunarodni razvod</div>
+      <h1 class="page-hero-h">Advokat za međunarodni razvod braka i priznanje stranih presuda</h1>
+      <p class="page-hero-deck">Pravni postupci za građane Srbije u dijaspori i strane državljane sa razvodom i priznanjem presuda u Srbiji.</p>
+    </div>
+  </section>
+
+  <section class="page-body">
+    <div class="wrap content-grid">
+      <article class="content-section">
+        <h2>Međunarodni razvod u Srbiji</h2>
+        <p>Kada bračna zajednica ima inostrani element, postupak razvoda zahteva poznavanje međunarodnog privatnog prava. Pružamo potpunu podršku građanima Srbije u inostranstvu i stranim državljanima.</p>
+        <ul class="content-list">
+          <li>Vođenje postupka pred domaćim sudovima na osnovu specijalnog punomoćja.</li>
+          <li>Postupci sporazumnog razvoda i razvoda po tužbi.</li>
+          <li>Rešavanje pitanja nadležnosti i merodavnog prava.</li>
+        </ul>
+      </article>
+
+      <article class="content-section">
+        <h2>Priznanje strane presude o razvodu</h2>
+        <p>Ako ste razvedeni u inostranstvu, ta presuda ne važi automatski u Srbiji. Potrebno je pokrenuti postupak priznanja pred Višim sudom u Beogradu.</p>
+        <ul class="content-list">
+          <li>Prikupljanje i provera dokumentacije sa Apostille pečatom.</li>
+          <li>Prevod dokumentacije od ovlašćenog sudskog tumača.</li>
+          <li>Upis rešenja u matične knjige rođenih i venčanih.</li>
+        </ul>
+      </article>
+
+      <article class="content-section service-note">
+        <h2>Imovina u Srbiji nakon inostranog razvoda</h2>
+        <p>Strana presuda često rešava samo status braka, ali ne i imovinu koja je u Srbiji. Nakon priznanja razvoda, pokrećemo postupak deobe zajedničke bračne tekovine u Srbiji.</p>
+      </article>
+
+      <article class="content-section">
+        <h2>Interni linkovi</h2>
+        <p>Za klasičan razvod pogledajte <a href="/gradjansko-pravo/razvod-braka-cukarica">Razvod braka</a>. Ako postoji imovina u Srbiji, vidite i <a href="/gradjansko-pravo/nekretnine-cukarica">Nekretnine</a> i <a href="/gradjansko-pravo/nasledno-pravo-beograd">Nasledno pravo</a>.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="wrap">
+      <div class="section-header">
+        <div><span class="section-h-label">FAQ</span> <span class="section-h">Najčešća pitanja</span></div>
+      </div>
+      <div class="faq-grid">
+        {faq.map((item) => (
+          <article class="faq-item reveal">
+            <h3 class="faq-question">{item.question}</h3>
+            <p class="faq-answer">{item.answer}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-cta-section">
+    <div class="wrap page-cta-inner reveal">
+      <div class="cta-copy">
+        <div class="section-h-label">Online konsultacije</div>
+        <h2 class="section-h">Rešite razvod iz inostranstva bez stresa</h2>
+        <p>Zakažite konsultaciju putem Vibera/WhatsApp-a ili telefona i završite dokumentaciju bez čestih putovanja u Srbiju.</p>
+      </div>
+      <a class="btn-brick" href="/kontakt">Kontaktirajte nas</a>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</BaseLayout>

@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faq = [
+  {
+    question: 'Koji je rok za podnošenje tužbe za smetanje poseda?',
+    answer: 'Rok je 30 dana od saznanja za smetanje i učinioca, a najkasnije godinu dana od nastanka smetanja. Propuštanje roka onemogućava brzu sudsku zaštitu.',
+  },
+  {
+    question: 'Šta sud utvrđuje u postupku za smetanje poseda?',
+    answer: 'Sud utvrđuje ko je bio u poslednjem mirnom posedu i da li je došlo do samovoljnog ometanja, bez razmatranja vlasništva na papiru.',
+  },
+  {
+    question: 'Da li mogu tražiti privremene mere?',
+    answer: 'Da, advokat može predložiti privremene mere radi hitnog otklanjanja štete ili opasnosti dok spor nije rešen.',
+  },
+  {
+    question: 'Šta kada komšija tvrdi da je vlasnik dela placa?',
+    answer: 'U tom slučaju se može pokrenuti postupak za uređenje međe, a sud vrši uvid u katastarske planove i faktičko stanje radi utvrđivanja granica.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+---
+
+<BaseLayout
+  title="Tužba za smetanje poseda Čukarica | Marko A. Petrović"
+  description="Komšija vam je blokirao prolaz ili zauzeo deo placa? Advokat za smetanje poseda i komšijske sporove na Čukarici i u Žarkovu. Hitni sudski postupci."
+>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-kicker">Smetanje poseda</div>
+      <h1 class="page-hero-h">Advokat za smetanje poseda i komšijske sporove – Čukarica</h1>
+      <p class="page-hero-deck">Pravna pomoć kada vam neko ograniči korišćenje imovine, blokira prolaz ili diskutabilno gradi na granici parcele.</p>
+    </div>
+  </section>
+
+  <section class="page-body">
+    <div class="wrap content-grid">
+      <article class="content-section">
+        <h2>Šta je smetanje poseda?</h2>
+        <p>Smetanje poseda postoji kada vas neko samovlasno uznemirava u korišćenju vaše nepokretnosti ili vam je potpuno oduzme. Sud tada gleda ko je imao poslednji miran posed, a ne ko je vlasnik na papiru.</p>
+      </article>
+
+      <article class="content-section">
+        <h2>Hitne mere i zaštita vašeg posedovanja</h2>
+        <p>Zastupamo pred Drugim osnovnim sudom u Beogradu sa ciljem da se podnesu hitne mere koje odmah uklanjaju prepreke i sprečavaju dalju štetu.</p>
+        <ul class="content-list">
+          <li>Podnošenje tužbe za smetanje poseda.</li>
+          <li>Predlaganje privremenih mera za hitno uklanjanje opasnosti ili prepreka.</li>
+          <li>Zaštita prava korišćenja i mirnog posedovanja.</li>
+        </ul>
+      </article>
+
+      <article class="content-section service-note">
+        <h2>Komšijski sporovi u Čukarici</h2>
+        <p>U Žarkovu i okolini često dolazi do spora zbog međa, bespravnog prolaza, zvučnih imisija ili gradnje bez saglasnosti. Pružamo pravnu zaštitu i za te sporove kako bismo uspostavili mirno stanje.</p>
+      </article>
+
+      <article class="content-section">
+        <h2>Uređenje međa i imisije</h2>
+        <ul class="content-list">
+          <li>Postupak za uređenje međe u saradnji sa sudskim geodetom.</li>
+          <li>Zaštita od buke, dima, neprijatnih mirisa i drveća koje prelazi na vaš posed.</li>
+          <li>Zaustavljanje nezakonitih građevinskih zahvata suseda.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="wrap">
+      <div class="section-header">
+        <div><span class="section-h-label">FAQ</span> <span class="section-h">Najčešća pitanja</span></div>
+      </div>
+      <div class="faq-grid">
+        {faq.map((item) => (
+          <article class="faq-item reveal">
+            <h3 class="faq-question">{item.question}</h3>
+            <p class="faq-answer">{item.answer}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-cta-section">
+    <div class="wrap page-cta-inner reveal">
+      <div class="cta-copy">
+        <div class="section-h-label">Hitna zaštita</div>
+        <h2 class="section-h">Ne čekajte da komšija završi delo</h2>
+        <p>Ako vam je ugrožen miran posed ili su infracrveni radovi u toku, zakažite hitnu konzultaciju i pokrenite tužbu odmah.</p>
+      </div>
+      <a class="btn-brick" href="/kontakt">Kontaktirajte nas</a>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</BaseLayout>

@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faq = [
+  {
+    question: 'Šta da uradim ako me policija pozove na informativni razgovor?',
+    answer: 'Imate pravo da ne date izjavu bez prisustva advokata. Angažujte branioca pre nego što date bilo kakvu izjavu, jer ona može kasnije biti korišćena protiv vas.',
+  },
+  {
+    question: 'Šta je oportunitet i ko može da ga dobije?',
+    answer: 'Oportunitet je institut odlaganja krivičnog gonjenja za dela do pet godina zatvora, pod uslovom da tužilac proceni da su ispunjeni zakonski uslovi i da osumnjičeni preuzme obaveze.',
+  },
+  {
+    question: 'Da li advokat može da poseti lice u pritvoru?',
+    answer: 'Da, izabrani branilac može podneti zahtev za posetu u pritvorskoj jedinici, uz dozvolu nadležnog sudije, i time pripremiti odbranu i sačuvati poverljivost razgovora.',
+  },
+  {
+    question: 'Koja su prava osumnjičenog na prvom saslušanju?',
+    answer: 'Osumnjičeni ima pravo na advokata, pravo na ćutanje, da bude obavešten o optužbi i da preuzme dokaze protiv sebe u skladu sa zakonom.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+---
+
+<BaseLayout
+  title="Advokat za krivično pravo Beograd | Marko A. Petrović"
+  description="Potreban vam je iskusan advokat za krivični postupak u Beogradu? Hitna odbrana kod hapšenja, saslušanja u policiji i tužilaštvu, ukidanje pritvora."
+>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-kicker">Krivično pravo</div>
+      <h1 class="page-hero-h">Advokat za krivično pravo – Odbrana u krivičnim postupcima</h1>
+      <p class="page-hero-deck">Vreme je ključno u krivičnom postupku. Prvi korak uz stručnog branioca često menja tok slučaja.</p>
+    </div>
+  </section>
+
+  <section class="page-body">
+    <div class="wrap content-grid">
+      <article class="content-section">
+        <h2>Hitna odbrana i procesna zaštita</h2>
+        <p>U krivičnom postupku sloboda i reputacija su na kocki. Svaki minut je dragocen od trenutka prvih policijskih radnji, zbog čega je prisustvo stručnog branioca od samog početka ključ.</p>
+        <ul class="content-list">
+          <li>Zastupanje prilikom saslušanja u policiji i tužilaštvu.</li>
+          <li>Podnošenje žalbi na pritvor i predlaganje blažih mera.</li>
+          <li>Priprema strategije odbrane pre prve odbrane pred tužiocem.</li>
+        </ul>
+      </article>
+
+      <article class="content-section">
+        <h2>Zastupanje u svim fazama postupka</h2>
+        <p>Od kraćeg postupka za lakša krivična dela do redovnog postupka u Višem sudu, branilac aktivno učestvuje u izvođenju dokaza i izgradnji odbrane.</p>
+        <ul class="content-list">
+          <li>Suđenja pred osnovnim i višim sudovima.</li>
+          <li>Sastavljanje žalbi Apelacionom sudu.</li>
+          <li>Pregovaranje o Sporazumu o priznanju krivičnog dela kada je to u najboljem interesu klijenta.</li>
+        </ul>
+      </article>
+
+      <article class="content-section service-note">
+        <h2>Specifične oblasti krivičnog prava</h2>
+        <p>Zastupamo osumnjičene i okrivljene u svim vrstama krivičnih dela, uključujući dela protiv imovine, života i tela, privredni kriminal i droge.</p>
+      </article>
+
+      <article class="content-section">
+        <h2>Interni linkovi</h2>
+        <p>Ako je predmet povezan sa saobraćajem i oduzimanjem dozvole, pogledajte <a href="/krivicno-pravo/saobracajni-prekrsaji-beograd">Saobraćajne prekršaje</a>. Za naknadu štete nakon povreda, posetite <a href="/gradjansko-pravo/naknada-stete-beograd">Naknadu štete</a>.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="wrap">
+      <div class="section-header">
+        <div><span class="section-h-label">FAQ</span> <span class="section-h">Najčešća pitanja</span></div>
+      </div>
+      <div class="faq-grid">
+        {faq.map((item) => (
+          <article class="faq-item reveal">
+            <h3 class="faq-question">{item.question}</h3>
+            <p class="faq-answer">{item.answer}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-cta-section">
+    <div class="wrap page-cta-inner reveal">
+      <div class="cta-copy">
+        <div class="section-h-label">Krivična zaštita</div>
+        <h2 class="section-h">Ne prepuštajte odbranu slučaju</h2>
+        <p>Kontaktirajte advokata za hitnu odbranu u Beogradu i zaštitite prava od prvog ročišta do pravnosnažne odluke.</p>
+      </div>
+      <a class="btn-brick" href="/kontakt">Kontaktirajte nas</a>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</BaseLayout>
