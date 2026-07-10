@@ -150,7 +150,7 @@ footer { background: var(--dark); }
 }
 
 /* ─── PAGE HERO (inner pages) ─── */
-.page-hero { border-bottom: 3px solid var(--dark); background: linear-gradient(180deg, rgba(30,21,10,0.72) 0%, rgba(30,21,10,0.96) 100%), url('/subpage-hero.webp') center/cover no-repeat; padding: 64px; }
+.page-hero { border-bottom: 3px solid var(--dark); background-image: linear-gradient(180deg, rgba(30,21,10,0.72) 0%, rgba(30,21,10,0.96) 100%), var(--page-hero-bg); background-position: center; background-size: cover; background-repeat: no-repeat; padding: 64px; }
 .page-hero-inner { max-width: 1300px; margin: 0 auto; }
 .page-hero-kicker { font-size: 10px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: var(--brick3); margin-bottom: 16px; }
 .page-hero-h { font-family: var(--serif); font-size: clamp(30px, 4.5vw, 52px); color: var(--cream); line-height: 1.15; max-width: 800px; }
