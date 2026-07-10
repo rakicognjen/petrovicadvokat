@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const usluge = [
-  { h: 'Krivična odbrana (opšte)', p: 'Hapšenje, saslušanje, pritvor, odbrana na suđenju i žalbe.', href: '/krivicno-pravo/krivicna-odbrana-beograd' },
+  { h: 'Odbrana u krivičnom postupku', p: 'Hapšenje, saslušanje, pritvor, odbrana na suđenju i žalbe.', href: '/krivicno-pravo/krivicna-odbrana-beograd' },
   { h: 'Saobraćajni prekršaji i krivična dela', p: 'Vožnja pod dejstvom alkohola, kazneni bodovi, teža saobraćajna krivična dela.', href: '/krivicno-pravo/saobracajni-prekrsaji-beograd' },
 ];
 
@@ -43,39 +43,13 @@ const breadcrumbSchema = {
 
 <BaseLayout
   title="Advokat za krivično pravo Beograd | Marko A. Petrović"
-  description="Krivična odbrana i zastupanje u saobraćajnim prekršajima u Beogradu. Hitna dostupnost kod hapšenja, saslušanja i prekršajnih postupaka. Pozovite odmah."
+  description="Odbrana u krivičnom postupku i zastupanje u saobraćajnim prekršajima u Beogradu. Hitna dostupnost kod hapšenja, saslušanja i prekršajnih postupaka. Pozovite odmah."
 >
   <section class="page-hero">
     <div class="page-hero-inner">
       <div class="page-hero-kicker">Krivično pravo</div>
       <h1 class="page-hero-h">Advokat za krivično pravo – Beograd</h1>
       <p class="page-hero-deck">Odbrana u svim fazama krivičnog postupka i saobraćajnim prekršajima, uz hitnu dostupnost od prvog policijskog poziva do žalbe na presudu.</p>
-    </div>
-  </section>
-
-  <section class="page-body">
-    <div class="wrap content-grid">
-      <article class="content-section">
-        <p>Kada je sloboda ili vozačka dozvola ugrožena, brzina reakcije je jednako važna kao i pravno znanje. Naša advokatska kancelarija pokriva odbranu u svim fazama krivičnog postupka — od prvog policijskog poziva do žalbe na presudu — kao i posebno masovnu oblast saobraćajnih prekršaja i krivičnih dela, gde svakodnevno pomažemo vozačima u Beogradu da sačuvaju dozvolu i izbegnu zatvorsku kaznu.</p>
-        <p>Bilo da se radi o hapšenju, pozivu na informativni razgovor ili prekršajnoj prijavi zbog vožnje pod dejstvom alkohola, način na koji reagujete u prvih nekoliko sati često određuje ishod celog postupka.</p>
-      </article>
-
-      <article class="content-section">
-        <h2>Faze krivičnog postupka i kada vam je potreban advokat</h2>
-        <p>Krivični postupak u Srbiji prolazi kroz nekoliko faza — predistražni postupak (saslušanje, eventualno određivanje pritvora), istragu, podizanje optužnice, glavni pretres i, po potrebi, žalbeni postupak pred Apelacionim sudom. Iako mnogi ljudi misle da im advokat treba tek kada predmet stigne na sud, upravo su prvi sati nakon policijske intervencije najkritičniji — greške i izjave date bez branioca teško se kasnije ispravljaju.</p>
-        <p>Isti princip važi i za saobraćajne prekršaje: zapisnik koji policija sastavi na licu mesta u velikoj meri određuje tok prekršajnog postupka, pa je rana pravna analiza tog zapisnika često ključna za ishod.</p>
-      </article>
-
-      <article class="content-section service-note">
-        <h2>Zašto je hitno angažovanje branioca ključno</h2>
-        <p>Prvih 48 sati policijskog zadržavanja zakonski su najosetljiviji period — tada se odlučuje o eventualnom određivanju pritvora i postavljaju temelji odbrane za ostatak postupka. Kancelarija pruža hitnu dostupnost upravo za ovakve situacije, uključujući izlazak na teren i zastupanje već na prvom saslušanju u policiji ili tužilaštvu.</p>
-      </article>
-
-      <article class="content-section">
-        <h2>Odbrana pred svim nadležnim institucijama u Beogradu</h2>
-        <p>Krivični i prekršajni postupci u Beogradu vode se pred više različitih institucija, u zavisnosti od težine dela — od osnovnih sudova i Prekršajnog suda, preko Prvog, Drugog, Trećeg i Višeg javnog tužilaštva, do Apelacionog suda u žalbenom postupku. Kancelarija redovno zastupa klijente pred svim ovim institucijama, što znači da se odbrana ne prekida promenom faze postupka niti prelaskom predmeta sa jednog na drugi organ — isti advokat prati predmet od prve policijske intervencije do pravosnažnog okončanja.</p>
-        <p>Ista doslednost važi i za saobraćajne predmete: bilo da je reč o prekršajnom postupku zbog prekoračenja brzine ili o krivičnom delu ugrožavanja javnog saobraćaja sa teškim posledicama, klijent ima jednog advokata koji poznaje ceo tok predmeta, umesto da menja pravnog zastupnika u zavisnosti od faze u kojoj se predmet nalazi.</p>
-      </article>
     </div>
   </section>
 
@@ -93,6 +67,32 @@ const breadcrumbSchema = {
           </a>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="page-body">
+    <div class="wrap content-grid">
+      <article class="content-section">
+        <p>Kada je sloboda ili vozačka dozvola ugrožena, brzina reakcije je jednako važna kao i pravno znanje. Naša advokatska kancelarija pokriva odbranu u svim fazama krivičnog postupka, od prvog policijskog poziva do žalbe na presudu, kao i posebno masovnu oblast saobraćajnih prekršaja i krivičnih dela, gde svakodnevno pomažemo vozačima u Beogradu da sačuvaju dozvolu i izbegnu zatvorsku kaznu.</p>
+        <p>Bilo da se radi o hapšenju, pozivu na informativni razgovor ili prekršajnoj prijavi zbog vožnje pod dejstvom alkohola, način na koji reagujete u prvih nekoliko sati često određuje ishod celog postupka.</p>
+      </article>
+
+      <article class="content-section">
+        <h2>Faze krivičnog postupka i kada vam je potreban advokat</h2>
+        <p>Krivični postupak u Srbiji prolazi kroz nekoliko faza, uključujući predistražni postupak (saslušanje, eventualno određivanje pritvora), istragu, podizanje optužnice, glavni pretres i, po potrebi, žalbeni postupak pred Apelacionim sudom. Iako mnogi ljudi misle da im advokat treba tek kada predmet stigne na sud, upravo su prvi sati nakon policijske intervencije najkritičniji, jer se greške i izjave date bez branioca teško kasnije ispravljaju.</p>
+        <p>Isti princip važi i za saobraćajne prekršaje: zapisnik koji policija sastavi na licu mesta u velikoj meri određuje tok prekršajnog postupka, pa je rana pravna analiza tog zapisnika često ključna za ishod.</p>
+      </article>
+
+      <article class="content-section service-note">
+        <h2>Zašto je hitno angažovanje branioca ključno</h2>
+        <p>Prvih 48 sati policijskog zadržavanja zakonski su najosetljiviji period, jer se tada odlučuje o eventualnom određivanju pritvora i postavljaju temelji odbrane za ostatak postupka. Kancelarija pruža hitnu dostupnost upravo za ovakve situacije, uključujući izlazak na teren i zastupanje već na prvom saslušanju u policiji ili tužilaštvu.</p>
+      </article>
+
+      <article class="content-section">
+        <h2>Odbrana pred svim nadležnim institucijama u Beogradu</h2>
+        <p>Krivični i prekršajni postupci u Beogradu vode se pred više različitih institucija, u zavisnosti od težine dela, od osnovnih sudova i Prekršajnog suda, preko Prvog, Drugog, Trećeg i Višeg javnog tužilaštva, do Apelacionog suda u žalbenom postupku. Kancelarija redovno zastupa klijente pred svim ovim institucijama, što znači da se odbrana ne prekida promenom faze postupka niti prelaskom predmeta sa jednog na drugi organ. Isti advokat prati predmet od prve policijske intervencije do pravosnažnog okončanja.</p>
+        <p>Ista doslednost važi i za saobraćajne predmete: bilo da je reč o prekršajnom postupku zbog prekoračenja brzine ili o krivičnom delu ugrožavanja javnog saobraćaja sa teškim posledicama, klijent ima jednog advokata koji poznaje ceo tok predmeta, umesto da menja pravnog zastupnika u zavisnosti od faze u kojoj se predmet nalazi.</p>
+      </article>
     </div>
   </section>
 

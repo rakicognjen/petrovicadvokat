@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-  title="Kontakt — Advokat Marko A. Petrović | Beograd"
+  title="Kontakt | Advokat Marko A. Petrović, Beograd"
   description="Kontaktirajte advokata Marka A. Petrovića u Beogradu. Adresa, telefon, email i radno vreme kancelarije."
 >
   <section class="page-hero">
@@ -62,7 +62,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     const email = String(data.get('email') || '');
     const phone = String(data.get('phone') || '');
     const message = String(data.get('message') || '');
-    const subject = encodeURIComponent(`Upit sa sajta — ${name}`);
+    const subject = encodeURIComponent(`Upit sa sajta od ${name}`);
     const body = encodeURIComponent(
       `Ime i prezime: ${name}\nEmail: ${email}\nTelefon: ${phone}\n\nPoruka:\n${message}`
     );
