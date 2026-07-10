@@ -32,6 +32,16 @@ const faqSchema = {
     },
   })),
 };
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Početna', item: `${Astro.site}` },
+    { '@type': 'ListItem', position: 2, name: 'Građansko pravo', item: `${Astro.site}gradjansko-pravo/` },
+    { '@type': 'ListItem', position: 3, name: 'Naknada štete', item: Astro.url.href },
+  ],
+};
 ---
 
 <BaseLayout
@@ -40,6 +50,11 @@ const faqSchema = {
 >
   <section class="page-hero">
     <div class="page-hero-inner">
+      <ul class="breadcrumbs">
+        <li><a href="/">Početna</a></li>
+        <li><a href="/gradjansko-pravo/">Građansko pravo</a></li>
+        <li><span>Naknada štete</span></li>
+      </ul>
       <div class="page-hero-kicker">Naknada štete</div>
       <h1 class="page-hero-h">Advokat za naknadu štete – Saobraćajne nezgode i povrede</h1>
       <p class="page-hero-deck">Pravni zastupnik za maksimalnu nadoknadu štete uz potpunu podršku u dokazivanju povreda i troškova.</p>
@@ -104,4 +119,5 @@ const faqSchema = {
   </section>
 
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 </BaseLayout>

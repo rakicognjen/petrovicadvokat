@@ -1,17 +1,47 @@
 ---
 const { pathname } = Astro.url;
 
-const navItems = [
-  { href: '/oblasti-prava/gradjansko-pravo', label: 'Građansko pravo' },
-  { href: '/oblasti-prava/upravno-pravo', label: 'Upravno pravo' },
-  { href: '/oblasti-prava/krivicno-pravo', label: 'Krivično pravo' },
-  { href: '/blog', label: 'Pravni saveti' },
+const navGroups = [
+  {
+    label: 'Građansko pravo',
+    base: '/gradjansko-pravo',
+    items: [
+      { href: '/gradjansko-pravo/razvod-braka-cukarica', label: 'Razvod braka' },
+      { href: '/gradjansko-pravo/nekretnine-cukarica', label: 'Nekretnine' },
+      { href: '/gradjansko-pravo/naknada-stete-beograd', label: 'Naknada štete' },
+      { href: '/gradjansko-pravo/nasledno-pravo-beograd', label: 'Nasledno pravo' },
+      { href: '/gradjansko-pravo/smetanje-poseda-cukarica', label: 'Smetanje poseda' },
+      { href: '/gradjansko-pravo/medjunarodni-razvod-beograd', label: 'Međunarodni razvod' },
+    ],
+  },
+  {
+    label: 'Krivično pravo',
+    base: '/krivicno-pravo',
+    items: [
+      { href: '/krivicno-pravo/krivicna-odbrana-beograd', label: 'Krivična odbrana' },
+      { href: '/krivicno-pravo/saobracajni-prekrsaji-beograd', label: 'Saobraćajni prekršaji' },
+    ],
+  },
+  {
+    label: 'Upravno pravo',
+    base: '/upravno-pravo',
+    items: [
+      { href: '/upravno-pravo/upravni-sporovi-beograd', label: 'Upravni sporovi' },
+    ],
+  },
+];
+
+const navLinks = [
   { href: '/o-advokatu', label: 'O advokatu' },
   { href: '/kontakt', label: 'Kontakt' },
 ];
 
 function isActive(href: string) {
   return pathname === href || pathname.startsWith(href + '/');
+}
+
+function isGroupActive(base: string) {
+  return pathname === base || pathname.startsWith(base + '/');
 }
 ---
 
@@ -28,10 +58,28 @@ function isActive(href: string) {
       <span>Pozovite nas</span>
       062/822-6-111
     </a>
+    <div class="masthead-mobile-actions">
+      <a class="masthead-phone-icon" href="tel:0628226111" aria-label="Pozovite 062/822-6-111">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg>
+      </a>
+      <button type="button" class="mobile-menu-toggle" id="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Otvorite meni">
+        <span class="mobile-menu-icon"><span></span><span></span><span></span></span>
+      </button>
+    </div>
   </div>
   <div class="masthead-bottom">
     <nav class="masthead-nav" aria-label="Glavna navigacija">
-      {navItems.map(item => (
+      {navGroups.map(group => (
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-trigger" href={`${group.base}/`} aria-haspopup="true" aria-current={isGroupActive(group.base) ? 'page' : undefined}>{group.label}</a>
+          <div class="nav-dropdown-menu">
+            {group.items.map(item => (
+              <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+            ))}
+          </div>
+        </div>
+      ))}
+      {navLinks.map(item => (
         <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
       ))}
     </nav>
@@ -40,3 +88,66 @@ function isActive(href: string) {
     </div>
   </div>
 </div>
+
+<div class="mobile-menu-backdrop" id="mobile-menu-backdrop"></div>
+<div class="mobile-menu-panel" id="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-header">
+    <div class="mobile-menu-brand">Marko A. Petrović</div>
+    <button type="button" class="mobile-menu-close" id="mobile-menu-close" aria-label="Zatvorite meni">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-menu-nav" aria-label="Mobilna navigacija">
+    {navGroups.map(group => (
+      <details class="mobile-nav-group" open={isGroupActive(group.base)}>
+        <summary>{group.label}</summary>
+        <div class="mobile-nav-sublist">
+          <a class="mobile-nav-sublist-overview" href={`${group.base}/`} aria-current={pathname === `${group.base}/` ? 'page' : undefined}>Pregled oblasti →</a>
+          {group.items.map(item => (
+            <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+          ))}
+        </div>
+      </details>
+    ))}
+    {navLinks.map(item => (
+      <a class="mobile-nav-link" href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+    ))}
+  </nav>
+  <div class="mobile-menu-footer">
+    <a class="mobile-menu-phone" href="tel:0628226111">062/822-6-111</a>
+    <a class="btn-brick mobile-menu-cta" href="/kontakt">Zakažite konsultaciju</a>
+  </div>
+</div>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const panel = document.getElementById('mobile-menu');
+  const backdrop = document.getElementById('mobile-menu-backdrop');
+  const closeBtn = document.getElementById('mobile-menu-close');
+
+  function openMenu() {
+    panel?.classList.add('open');
+    backdrop?.classList.add('open');
+    toggle?.setAttribute('aria-expanded', 'true');
+    panel?.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    panel?.classList.remove('open');
+    backdrop?.classList.remove('open');
+    toggle?.setAttribute('aria-expanded', 'false');
+    panel?.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  toggle?.addEventListener('click', () => {
+    panel?.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  closeBtn?.addEventListener('click', closeMenu);
+  backdrop?.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+  panel?.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
+</script>

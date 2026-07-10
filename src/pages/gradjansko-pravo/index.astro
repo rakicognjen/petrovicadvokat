@@ -1,0 +1,131 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const usluge = [
+  { h: 'Razvod braka', p: 'Sporazumni razvod, razvod po tužbi, poveravanje dece i alimentacija.', href: '/gradjansko-pravo/razvod-braka-cukarica' },
+  { h: 'Nekretnine', p: 'Kupoprodaja, legalizacija i uknjižba stanova, kuća i placeva.', href: '/gradjansko-pravo/nekretnine-cukarica' },
+  { h: 'Nasledno pravo', p: 'Ostavinski postupci, testamenti i ugovori o doživotnom izdržavanju.', href: '/gradjansko-pravo/nasledno-pravo-beograd' },
+  { h: 'Naknada štete', p: 'Odšteta nakon saobraćajnih nezgoda, povreda na radu i drugih incidenata.', href: '/gradjansko-pravo/naknada-stete-beograd' },
+  { h: 'Smetanje poseda', p: 'Komšijski sporovi, međe i hitna zaštita državine.', href: '/gradjansko-pravo/smetanje-poseda-cukarica' },
+  { h: 'Međunarodni razvod braka', p: 'Razvod i priznanje stranih presuda za klijente iz dijaspore.', href: '/gradjansko-pravo/medjunarodni-razvod-beograd' },
+];
+
+const faq = [
+  {
+    question: 'Da li mogu prvo da dobijem samo savet, bez obaveze angažovanja?',
+    answer: 'Da. Inicijalna konsultacija služi upravo tome — da razumete svoju pravnu poziciju i moguće opcije pre nego što odlučite da li vam je i u kojoj meri potrebno dalje angažovanje advokata.',
+  },
+  {
+    question: 'Da li kancelarija radi predmete i van teritorije Čukarice?',
+    answer: 'Da. Iako nam je sedište u Žarkovu i najviše klijenata dolazi sa Čukarice, zastupamo klijente pred svim sudovima i institucijama u Beogradu, a po potrebi i u drugim gradovima u Srbiji.',
+  },
+  {
+    question: 'Koliko traje tipičan građanskopravni postupak?',
+    answer: 'Zavisi od vrste spora i toga da li se rešenje postiže sporazumno ili pred sudom. Sporazumni postupci (npr. sporazumni razvod, ostavinska rasprava bez spora) često se okončaju za nekoliko meseci, dok parnični postupci sa spornim činjenicama mogu trajati i duže — na prvom razgovoru dobijate realnu procenu za vaš konkretan slučaj.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Početna', item: `${Astro.site}` },
+    { '@type': 'ListItem', position: 2, name: 'Građansko pravo', item: `${Astro.site}gradjansko-pravo/` },
+  ],
+};
+---
+
+<BaseLayout
+  title="Advokat za građansko pravo Beograd | Marko A. Petrović"
+  description="Advokatska kancelarija za građansko pravo u Beogradu — razvod braka, nekretnine, nasledstvo, naknada štete i smetanje poseda. Jedna kancelarija za sve."
+>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-kicker">Građansko pravo</div>
+      <h1 class="page-hero-h">Advokat za građansko pravo – Beograd i Čukarica</h1>
+      <p class="page-hero-deck">Razvod, nekretnine, nasledstvo, naknada štete i smetanje poseda — sve grane građanskog prava pod jednim krovom, sa kancelarijom u Žarkovu za Čukaricu i širi Beograd.</p>
+    </div>
+  </section>
+
+  <section class="page-body">
+    <div class="wrap content-grid">
+      <article class="content-section">
+        <p>Građansko pravo prati čoveka kroz čitav životni ciklus — od zaključenja braka, preko kupovine prve nekretnine, do nasleđivanja imovine roditelja. Upravo zato je najveća prednost angažovanja jedne advokatske kancelarije za sve ove oblasti to što vaš advokat već poznaje kompletnu porodičnu i imovinsku sliku, umesto da svaki put iznova objašnjavate istoriju predmeta nekom novom pravniku.</p>
+        <p>Naša advokatska kancelarija u Žarkovu pruža pravne savete i zastupanje u svim granama građanskog prava, sa posebnim naglaskom na klijente sa opštine Čukarica — Banovo Brdo, Cerak, Bele Vode i okolna naselja — ali i za predmete pred sudovima širom Beograda.</p>
+      </article>
+
+      <article class="content-section">
+        <h2>Šta sve spada u građansko pravo</h2>
+        <p>Građansko pravo je najšira grana prava koja reguliše odnose između fizičkih i pravnih lica — od bračnih i porodičnih odnosa, preko svojine i prometa nepokretnosti, do naknade štete i nasleđivanja. Za razliku od krivičnog ili upravnog prava, gde je jedna strana uvek država, u građanskopravnim sporovima obično su obe strane privatna lica, a sud presuđuje na osnovu Zakona o obligacionim odnosima, Porodičnog zakona, Zakona o osnovama svojinskopravnih odnosa i Zakona o nasleđivanju.</p>
+        <p>Zbog toga se u praksi najčešće susrećemo sa predmetima iz šest povezanih oblasti, koje detaljno obrađujemo na posebnim stranicama našeg sajta.</p>
+      </article>
+
+      <article class="content-section service-note">
+        <h2>Zašto klijenti biraju kancelariju sa sedištem u Žarkovu</h2>
+        <p>Porodični i imovinski postupci često zahtevaju više susreta — predaju dokumentacije, potpisivanje sporazuma, pripremu za ročišta. Sedište u Žarkovu znači da klijenti sa cele opštine Čukarica konsultacije i predaju papira obavljaju bez gubljenja vremena u saobraćaju ka centru grada, dok istovremeno redovno zastupamo klijente pred Drugim osnovnim sudom, javnim beležnicima i Centrom za socijalni rad na ovoj teritoriji, kao i pred svim ostalim sudovima u Beogradu kada predmet to zahteva.</p>
+      </article>
+
+      <article class="content-section">
+        <h2>Kako izgleda saradnja sa kancelarijom</h2>
+        <p>Svaki predmet počinje inicijalnom konsultacijom u kojoj advokat upoznaje činjenično stanje i objašnjava realna očekivanja — rokove, troškove i moguće ishode, bez nepotrebnog obećavanja. Nakon toga sledi prikupljanje i provera dokumentacije, izrada strategije (sporazumno rešenje kad god je moguće, sudski put kada je neophodan) i aktivno zastupanje do pravosnažnog okončanja postupka. Klijent u svakom trenutku zna u kojoj je fazi predmet i šta je sledeći korak.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="hub-services-section">
+    <div class="wrap">
+      <div class="section-header">
+        <div><span class="section-h-label">Pod-oblasti</span> <span class="section-h">Usluge u okviru građanskog prava</span></div>
+      </div>
+      <div class="hub-services-grid">
+        {usluge.map((u) => (
+          <a class="hub-service-cell" href={u.href}>
+            <div class="hub-service-h">{u.h}</div>
+            <div class="hub-service-rule"></div>
+            <p class="hub-service-p">{u.p}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="wrap">
+      <div class="section-header">
+        <div><span class="section-h-label">FAQ</span> <span class="section-h">Često postavljana pitanja</span></div>
+      </div>
+      <div class="faq-grid">
+        {faq.map((item) => (
+          <article class="faq-item reveal">
+            <h3 class="faq-question">{item.question}</h3>
+            <p class="faq-answer">{item.answer}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-cta-section">
+    <div class="wrap page-cta-inner reveal">
+      <div class="cta-copy">
+        <div class="section-h-label">Zakažite konsultaciju</div>
+        <h2 class="section-h">Rešite pravno pitanje uz jednu kancelariju za sve</h2>
+        <p>Bez obzira da li vam je potrebna pomoć oko razvoda, nekretnine ili nasledstva, prvi korak je isti — inicijalni razgovor u kojem utvrđujemo najbolju strategiju za vaš slučaj.</p>
+      </div>
+      <a class="btn-brick" href="/kontakt">Kontaktirajte nas</a>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+</BaseLayout>

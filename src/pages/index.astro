@@ -4,36 +4,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const oblasti = [
   {
     num: '01',
-    href: '/oblasti-prava/gradjansko-pravo',
+    href: '/gradjansko-pravo/',
     h: 'Građansko pravo',
     p: 'Ugovori, naknada štete, imovinsko-pravni sporovi i izvršni postupci. Zastupanje fizičkih i pravnih lica pred parničnim i izvršnim sudovima.',
   },
   {
     num: '02',
-    href: '/oblasti-prava/upravno-pravo',
+    href: '/upravno-pravo/',
     h: 'Upravno pravo',
     p: 'Žalbe na rešenja upravnih organa, upravni sporovi i zastupanje pred organima uprave, inspekcijama i lokalnom samoupravom.',
   },
   {
     num: '03',
-    href: '/oblasti-prava/krivicno-pravo',
+    href: '/krivicno-pravo/',
     h: 'Krivično pravo',
     p: 'Odbrana u krivičnom postupku, zastupanje oštećenih i podnošenje pravnih lekova. Prisustvo od prvog saslušanja do pravnosnažne presude.',
-  },
-];
-
-const clanci = [
-  {
-    tag: 'Krivično pravo',
-    h: 'Prava okrivljenog u krivičnom postupku',
-    p: 'Pregled osnovnih prava koja okrivljeni ima od trenutka pokretanja postupka — pravo na odbranu, ćutanje i uvid u spise predmeta.',
-    href: '/blog/prava-okrivljenog-u-krivicnom-postupku',
-  },
-  {
-    tag: 'Upravno pravo',
-    h: 'Žalba na rešenje upravnog organa — rokovi i postupak',
-    p: 'Kada i kako se izjavljuje žalba, koji su zakonski rokovi i šta sledi ako prvostepeni organ ne postupi po žalbi.',
-    href: '/blog/zalba-na-resenje-upravnog-organa',
   },
 ];
 ---
@@ -49,7 +34,7 @@ const clanci = [
         <div class="hero-main-content">
           <div class="hero-kicker">Advokatska kancelarija · Beograd</div>
           <h1 class="hero-headline">Pravna zaštita zasnovana na preciznosti i iskustvu</h1>
-          <p class="hero-deck">Građansko, upravno i krivično pravo — oblasti koje zahtevaju poznavanje procedure, rokova i sudske prakse u svakom pojedinačnom predmetu.</p>
+          <p class="hero-deck">Građansko, upravno i krivično pravo su oblasti koje zahtevaju iskustvo, poznavanje procedure, rokova i sudske prakse u svakom pojedinačnom predmetu.</p>
           <div class="hero-byline">
             <div class="hero-byline-line"></div>
             <div class="hero-byline-text">Marko A. Petrović · Advokat · Beograd</div>
@@ -86,26 +71,6 @@ const clanci = [
             <div class="oblast-rule"></div>
             <p class="oblast-p">{o.p}</p>
           </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="clanci-section">
-    <div class="wrap">
-      <div class="section-header">
-        <div><span class="section-h-label">Pravni saveti</span> <span class="section-h">Poslednji stručni članci</span></div>
-        <a class="btn-brick" href="/blog">Svi članci</a>
-      </div>
-      <div class="clanci-grid">
-        {clanci.map((c, i) => (
-          <div class={`clanak-cell reveal d${i + 1}`}>
-            <div class="clanak-tag">{c.tag}</div>
-            <div class="clanak-rule"></div>
-            <div class="clanak-h">{c.h}</div>
-            <p class="clanak-p">{c.p}</p>
-            <a href={c.href} class="clanak-link">Pročitajte više →</a>
-          </div>
         ))}
       </div>
     </div>
@@ -167,18 +132,6 @@ const clanci = [
   .oblast-rule { height: 2px; width: 40px; background: var(--brick); margin-bottom: 14px; }
   .oblast-p { font-size: 14px; color: var(--brown); line-height: 1.75; font-weight: 300; }
   @media (max-width: 768px) { .oblasti-grid { grid-template-columns: 1fr; } .oblast-cell { border-right: none; padding: 32px 24px; } }
-
-  .clanci-section { border-bottom: 3px solid var(--dark); background: var(--cream); }
-  .clanci-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
-  .clanak-cell { padding: 36px 32px; border-right: 1px solid var(--tan); display: flex; flex-direction: column; gap: 16px; }
-  .clanak-cell:last-child { border-right: none; }
-  .clanak-tag { font-size: 9px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--brick); }
-  .clanak-rule { height: 2px; background: var(--tan); }
-  .clanak-h { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--dark); line-height: 1.35; }
-  .clanak-p { font-size: 13px; color: var(--brown); line-height: 1.75; font-weight: 300; flex: 1; }
-  .clanak-link { font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--brick); text-decoration: none; text-transform: uppercase; }
-  .clanak-link:hover { color: var(--brick2); }
-  @media (max-width: 700px) { .clanci-grid { grid-template-columns: 1fr; } .clanak-cell { border-right: none; border-bottom: 1px solid var(--tan); } }
 
   .o-meni-section { border-bottom: 3px solid var(--dark); background: var(--cream2); }
   .o-meni-teaser { padding: 72px 64px; max-width: 800px; }

@@ -32,6 +32,16 @@ const faqSchema = {
     },
   })),
 };
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Početna', item: `${Astro.site}` },
+    { '@type': 'ListItem', position: 2, name: 'Građansko pravo', item: `${Astro.site}gradjansko-pravo/` },
+    { '@type': 'ListItem', position: 3, name: 'Razvod braka', item: Astro.url.href },
+  ],
+};
 ---
 
 <BaseLayout
@@ -40,6 +50,11 @@ const faqSchema = {
 >
   <section class="page-hero">
     <div class="page-hero-inner">
+      <ul class="breadcrumbs">
+        <li><a href="/">Početna</a></li>
+        <li><a href="/gradjansko-pravo/">Građansko pravo</a></li>
+        <li><span>Razvod braka</span></li>
+      </ul>
       <div class="page-hero-kicker">Porodično pravo</div>
       <h1 class="page-hero-h">Advokat za razvod braka – Čukarica i Žarkovo</h1>
       <p class="page-hero-deck">Stručna, diskretna i pragmatična pravna pomoć u sporazumnim i tužbenim razvodima, uz zaštitu prava dece i pravnu sigurnost za imovinu.</p>
@@ -115,4 +130,5 @@ const faqSchema = {
   </section>
 
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 </BaseLayout>

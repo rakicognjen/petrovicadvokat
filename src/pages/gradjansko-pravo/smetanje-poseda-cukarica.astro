@@ -32,6 +32,16 @@ const faqSchema = {
     },
   })),
 };
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Početna', item: `${Astro.site}` },
+    { '@type': 'ListItem', position: 2, name: 'Građansko pravo', item: `${Astro.site}gradjansko-pravo/` },
+    { '@type': 'ListItem', position: 3, name: 'Smetanje poseda', item: Astro.url.href },
+  ],
+};
 ---
 
 <BaseLayout
@@ -40,6 +50,11 @@ const faqSchema = {
 >
   <section class="page-hero">
     <div class="page-hero-inner">
+      <ul class="breadcrumbs">
+        <li><a href="/">Početna</a></li>
+        <li><a href="/gradjansko-pravo/">Građansko pravo</a></li>
+        <li><span>Smetanje poseda</span></li>
+      </ul>
       <div class="page-hero-kicker">Smetanje poseda</div>
       <h1 class="page-hero-h">Advokat za smetanje poseda i komšijske sporove – Čukarica</h1>
       <p class="page-hero-deck">Pravna pomoć kada vam neko ograniči korišćenje imovine, blokira prolaz ili diskutabilno gradi na granici parcele.</p>
@@ -107,4 +122,5 @@ const faqSchema = {
   </section>
 
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 </BaseLayout>
