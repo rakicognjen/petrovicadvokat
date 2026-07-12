@@ -40,7 +40,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <label>Ne popunjavajte ovo polje: <input name="bot-field" /></label>
           </p>
           <label class="k-field">
-            <span>Ime i prezime</span>
+            <span>Ime i prezime *</span>
             <input type="text" name="name" required />
           </label>
           <label class="k-field">
@@ -48,14 +48,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <input type="email" name="email" />
           </label>
           <label class="k-field">
-            <span>Telefon</span>
+            <span>Telefon *</span>
             <input type="tel" name="phone" required />
           </label>
           <label class="k-field">
-            <span>Vaša poruka</span>
+            <span>Vaša poruka *</span>
             <textarea name="message" rows="5" required></textarea>
           </label>
           <button type="submit" class="btn-brick">Pošalji upit →</button>
+          <p class="k-required-note">* obavezno polje</p>
           <p id="form-status" class="k-status" role="status" aria-live="polite" hidden></p>
         </form>
       </div>
@@ -83,6 +84,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
     const data = new FormData(form);
 
     if (submitBtn) {
@@ -132,5 +139,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .k-status { font-size: 13px; line-height: 1.6; padding: 12px 14px; margin: 0; }
   .k-status-success { background: rgba(120,160,110,0.15); color: #cfe7c8; }
   .k-status-error { background: rgba(180,70,60,0.18); color: #f3c8c3; }
+  .k-required-note { font-size: 11px; color: rgba(253,248,240,0.4); margin: -6px 0 0; }
   @media (max-width: 900px) { .kontakt-inner { grid-template-columns: 1fr; } .kontakt-left { padding: 44px 24px; border-right: none; } .kontakt-right { padding: 44px 24px; } }
 </style>
