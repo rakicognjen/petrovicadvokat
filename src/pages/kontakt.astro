@@ -45,17 +45,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </label>
           <label class="k-field">
             <span>Email</span>
-            <input type="email" name="email" required />
+            <input type="email" name="email" />
           </label>
           <label class="k-field">
             <span>Telefon</span>
-            <input type="tel" name="phone" />
+            <input type="tel" name="phone" required />
           </label>
           <label class="k-field">
             <span>Vaša poruka</span>
             <textarea name="message" rows="5" required></textarea>
           </label>
           <button type="submit" class="btn-brick">Pošalji upit →</button>
+          <p id="form-status" class="k-status" role="status" aria-live="polite" hidden></p>
         </form>
       </div>
     </div>
@@ -64,6 +65,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const status = document.getElementById('form-status');
+  const submitBtn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
 
   function encodeFormData(formData: FormData) {
     const params = new URLSearchParams();
@@ -71,25 +74,41 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     return params.toString();
   }
 
+  function setStatus(text: string, variant: 'success' | 'error') {
+    if (!status) return;
+    status.hidden = false;
+    status.textContent = text;
+    status.className = `k-status k-status-${variant}`;
+  }
+
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
     const data = new FormData(form);
-    const name = String(data.get('name') || '');
-    const email = String(data.get('email') || '');
-    const phone = String(data.get('phone') || '');
-    const message = String(data.get('message') || '');
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Slanje...';
+    }
 
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encodeFormData(data),
-    }).catch(() => {});
-
-    const subject = encodeURIComponent(`Upit sa sajta od ${name}`);
-    const body = encodeURIComponent(
-      `Ime i prezime: ${name}\nEmail: ${email}\nTelefon: ${phone}\n\nPoruka:\n${message}`
-    );
-    window.location.href = `mailto:mpetrovic694@gmail.com?subject=${subject}&body=${body}`;
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error('Slanje nije uspelo');
+        form.reset();
+        setStatus('Poruka je uspešno poslata. Javićemo Vam se u najkraćem mogućem roku.', 'success');
+      })
+      .catch(() => {
+        setStatus('Slanje nije uspelo. Pozovite nas na 062/822-6-111 ili pišite na mpetrovic694@gmail.com.', 'error');
+      })
+      .finally(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Pošalji upit →';
+        }
+      });
   });
 </script>
 
@@ -110,5 +129,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .k-field { display: flex; flex-direction: column; gap: 6px; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: rgba(253,248,240,0.5); font-weight: 600; }
   .k-field input, .k-field textarea { font-family: var(--sans); font-size: 14px; color: var(--dark); background: var(--cream); border: none; padding: 12px 14px; resize: vertical; }
   .k-field input:focus, .k-field textarea:focus { outline: 2px solid var(--brick3); outline-offset: 0; }
+  .k-status { font-size: 13px; line-height: 1.6; padding: 12px 14px; margin: 0; }
+  .k-status-success { background: rgba(120,160,110,0.15); color: #cfe7c8; }
+  .k-status-error { background: rgba(180,70,60,0.18); color: #f3c8c3; }
   @media (max-width: 900px) { .kontakt-inner { grid-template-columns: 1fr; } .kontakt-left { padding: 44px 24px; border-right: none; } .kontakt-right { padding: 44px 24px; } }
 </style>
