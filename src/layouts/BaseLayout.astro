@@ -33,14 +33,17 @@ const jsonLd = {
     postalCode: '11030',
     addressCountry: 'RS',
   },
-  areaServed: ['Beograd', 'Čukarica', 'Srbija'],
+  areaServed: {
+    '@type': 'Country',
+    name: 'Srbija',
+  },
   priceRange: '$$',
   knowsAbout: ['Građansko pravo', 'Upravno pravo', 'Krivično pravo'],
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
     dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-    opens: '09:00',
-    closes: '17:00',
+    opens: '15:00',
+    closes: '19:00',
   },
   url: Astro.site,
 };
