@@ -141,6 +141,8 @@ footer { background: var(--dark); }
 .footer-ci svg { color: var(--brick3); flex-shrink: 0; }
 .footer-ci:hover { color: rgba(253,248,240,0.75); }
 .footer-bar { border-top: 1px solid rgba(255,255,255,0.06); max-width: 1300px; margin: 0 auto; padding: 18px 64px; display: flex; justify-content: space-between; font-size: 10px; letter-spacing: 0.04em; color: rgba(253,248,240,0.2); }
+.footer-bar a { color: inherit; text-decoration: none; transition: color 0.2s; }
+.footer-bar a:hover { color: rgba(253,248,240,0.55); }
 @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr 1fr; padding: 56px 24px; } }
 @media (max-width: 600px) { .footer-top { grid-template-columns: 1fr; } .footer-bar { flex-direction: column; gap: 8px; padding: 18px 24px; } }
 
